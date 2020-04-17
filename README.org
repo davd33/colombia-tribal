@@ -1,0 +1,17 @@
+#+TITLE: Colombia Tribal
+
+A story game in the tribal epoch of Colombia.
+
+* Development
+
+** Story line and actions
+
+We will be one software dev and a politician student developing this
+game, one of us is clearly not going to learn how to manage with lisp
+conses even for writing configuration files. Thus I think that using
+ORG files to write all the story logic is a better idea. It will still
+need some rigor from the non-devs but is going to be ok with a bit of
+my help.
+
+These ORG files will need some syntax in order to be interpreted by
+the game text engine.

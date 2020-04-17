@@ -1,0 +1,33 @@
+* PLACE The old market
+
+You arrive at a beautiful space in-between the trees that seem to be
+enchanted by the magics of the Pachamama, you feel fullfilled again.
+
+* PLACE The river
+
+You are now steping on the cold water and feel totally safe.
+
+* ACTION Walk to river
+
+
+
+* STORY The openning
+
+After all the ceremonies that you have gone through as a baby shaman
+you suddenly wake up in consciousness and realize that everything is
+dark. You want to open the eyes as hard as possible but only can you
+hear the song of water passing a couple of meters away from you.
+
+A voice says: "Welcome to school! haha"
+
+You: "To school?"
+
+The voice: "Indeed, here will you learn all the ways of the shamans,
+so that you can later and for ever guide our tribe into the present."
+
+As the voice stops, you start hearing new noises near where you
+previously heard a current of water.
+
+ACTIONS:
+GOTO, Walk to river, The river
+ASK, Ask to the voice to explain more, The voice explains more
