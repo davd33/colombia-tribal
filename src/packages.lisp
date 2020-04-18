@@ -55,92 +55,44 @@
            #:with-mapped-slot
            #:with-renamed-slot))
 
+(defpackage #:dynamic-text-book
+  (:use #:cl #:jsons #:alexandria #:pipe)
+  (:export))
+
+(defpackage #:game
+  (:use #:cl #:jsons #:alexandria #:spinneret)
+  (:export))
+
 (defpackage #:dao
   (:use #:cl)
   (:export
    ;; ENTITIES
-   #:contact
-   #:work-experience
-   #:reading
-   #:paragraph-element
-   #:cv
    ;; ENTITY FIELDS
-   #:title
-   #:sub-title
-   #:mail
-   #:id
-   #:section
-   #:paragraph
    ;; RETRIEVE
-   #:retrieve-cv
-   #:retrieve-readings
-   #:retrieve-work-experiences
-   #:retrieve-paragraph-elements
    ;; INSERT
-   #:insert-contact
-   #:insert-cv
-   #:insert-reading
-   #:insert-work-experience
-   #:insert-paragraph-element
    ;; CONNECT AND CREATE TABLES
    #:connect
-   #:create-tables
    #:*connection*))
 
 (defpackage #:dto
   (:use #:cl)
-  (:export #:contact-dto
-           #:work-experience-dto
-           #:reading-dto
-           #:paragraph-element-dto
-           #:paragraph-dto
-           #:section-dto
-           #:cv-dto
+  (:export ;; DTOs
            ;; ACCESSORS
-           #:title
-           #:sub-title
-           #:image
-           #:image-description
-           #:external-url
-           #:order
-           #:contact
-           #:company
-           #:description
-           #:duration
-           #:technologies
-           #:sections
-           #:paragraphs
-           #:elements
-           #:content
-           #:linkedin
-           #:mail
-           #:github
-           #:work-experiences
-           #:readings))
+   ))
 
 (defpackage #:api
   (:use #:cl #:snooze #:jsons #:alexandria)
   (:export #:start
-           #:stop
-           #:cv-handler))
+           #:stop))
 
 (defpackage #:html
   (:use #:cl #:spinneret)
-  (:export #:cv->html))
-
-(defpackage #:dev.mocks
-  (:use #:cl)
-  (:export #:api-cv
-           #:home
-           #:basic-cv))
+  (:export #:story->html))
 
 (defpackage #:web-site
-  (:use #:cl #:snooze #:jsons #:alexandria #:spinneret)
-  (:export #:start-all
-           #:stop-all
-           #:home))
+  (:use #:cl #:snooze #:jsons #:alexandria)
+  (:export #:home))
 
 (defpackage #:services
   (:use #:cl #:jsons #:alexandria #:spinneret)
-  (:export #:store-cv
-           #:get-cv))
+  (:export #:get-story))

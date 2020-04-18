@@ -27,11 +27,12 @@
                  (:file "memoize")
                  (:file "pipe")
                  (:file "mop")
+                 (:file "dynamic-text-book")
+                 (:file "game")
                  (:file "dao")
                  (:file "dto")
                  (:file "api")
                  (:file "html")
-                 (:file "dev.mocks")
                  (:file "web-site")
                  (:file "services"))))
   :description "The Free custom CV compatible with all other CV/jobs plateform."
