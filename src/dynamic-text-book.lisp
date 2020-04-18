@@ -69,6 +69,11 @@ An action is a bit of text that explains the transition to another story."
   (list (str:concat (action-text action)
                     text)))
 
+(defun story-title->id (title)
+  "Returns a dashed string of title."
+  (str:concat (str:downcase (str:replace-all " " "-" title))
+              "-story"))
+
 (defun next-story (&optional story actions-p)
   "Reads *IN* and update *LINE-CURSOR* with NEXT-LINE line by line.
 If ACTIONS-P is not nil, it means that we are collecting action lines."
@@ -91,8 +96,7 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                                    (multiple-value-bind (action-text quoted)
                                        (str:replace-all "\"" "" (first action))
                                      (make-action-button action-text
-                                                         (str:concat (second action)
-                                                                     "-story")
+                                                         (story-title->id (second action))
                                                          (not quoted))))
                                  story)
                                 (add-text-to-story line story))
@@ -122,12 +126,10 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                 ,@(loop
                      until (eq *line-cursor* :end-of-file)
                      collect (cond ((str:starts-with-p story-line *line-cursor*)
-                                    (let* ((symbol-str (format nil "~A-story"
-                                                               (second (str:split story-line *line-cursor*)))))
+                                    (let* ((symbol-str (story-title->id (second (str:split story-line *line-cursor*)))))
                                       `(hm:put ,st ,symbol-str ',(next-story))))
                                    ((str:starts-with-p action-line *line-cursor*)
-                                    (let* ((symbol-str (format nil "~A-action"
-                                                               (second (str:split action-line *line-cursor*)))))
+                                    (let* ((symbol-str (story-title->id (second (str:split action-line *line-cursor*)))))
                                       `(hm:put ,ac ,symbol-str ',(next-action)))))))))
         `(progn
            (defpackage ,destination-package

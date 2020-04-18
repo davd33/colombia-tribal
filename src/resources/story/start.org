@@ -17,9 +17,9 @@ phenomena. After this magical experience they become the guardians of
 the universe equilibrium.
 
 ** ACTIONS
-"Be a sun child", the-opening
+"Be a sun child", The Opening
 
-* STORY the-opening
+* STORY The Opening
 
 As a Sun Children, you have gone through a lot of ceremonies.
 Now you can communicate with nature.
@@ -32,9 +32,9 @@ water on the east. You also see different colors on the walls. And
 remember Mamu explaining how they are the veins of the moutain.
 
 ** ACTIONS
-walk-to-river, the-river
+Walk To The River, The River
 
-* STORY the-river
+* STORY The River
 
 You are now stepping on the cold water and feel totally safe.
 
@@ -46,28 +46,28 @@ was dark. There was neither Sun nor Moon nor people, no plants or
 animals. The sea was everywhere, the water was the mother. She was the
 spirit of what was to come and she was thought and memory."
 ** ACTIONS
-pray-to-the-water-spirit, pray-water-spirit
+Pray to The Water Spirit, Pray the water spirit
 
-* STORY the-old-market
+* STORY The Old Market
 
 You arrive at a beautiful space in-between the trees that seem to be
 enchanted by the magics of the Pachamama, you feel fulfilled again.
 
-* STORY pray-water-spirit
+* STORY Pray the water spirit
 
 The spirit says: "I can be life, I can be death. I am limitless."
 
 ** ACTIONS
-"Go back to the Cavern entrance.", Corazon
+"Go back to the Cavern entrance.", Walk back to the cavern
 
-* STORY Corazon
+* STORY Walk back to the cavern
 
 Arriving back at the center of the cavern, you suddenly hear a heart beating faster and faster.
 It appears to come from the deep inners of the moutain.
 ** ACTIONS
-"Kneel to listen the ground", listen-the-ground
+"Kneel to listen the ground", Listen the ground
 
-* STORY listen-the-ground
+* STORY Listen the ground
 
 You kneel on the ground, put your hands on it and feel them
 burning. You then settle your head to listen the earth. You listen carefully:
@@ -76,10 +76,10 @@ you hear her screaming!
 "THEY ARRE DESTROYINNG ME.... It is PAAINFUL!"
 She cries.
 
-* ACTION walk-to-river
+* ACTION Walk To The River
 
 You feel attracted by the river and slowly walk towards it.
 
-* ACTION pray-to-the-water-spirit
+* ACTION Pray to The Water Spirit
 
 You kneel down, placing your face in the river's cold water.
