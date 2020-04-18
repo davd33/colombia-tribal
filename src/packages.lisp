@@ -56,12 +56,21 @@
            #:with-renamed-slot))
 
 (defpackage #:dynamic-text-book
-  (:use #:cl #:jsons #:alexandria #:pipe)
-  (:export))
+  (:use #:cl #:alexandria)
+  (:export #:build-book
+           #:make-story
+           #:story-text
+           #:story-action-buttons
+           #:add-text-to-story
+           #:add-action-button-to-story
+           #:make-action-button
+           #:make-action
+           #:action-text
+           #:add-text-to-action))
 
 (defpackage #:game
-  (:use #:cl #:jsons #:alexandria #:spinneret)
-  (:export))
+  (:use #:cl #:dynamic-text-book)
+  (:export #:compile-colombia-tribal))
 
 (defpackage #:dao
   (:use #:cl)

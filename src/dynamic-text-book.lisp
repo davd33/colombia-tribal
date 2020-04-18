@@ -91,7 +91,8 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                                    (multiple-value-bind (action-text quoted)
                                        (str:replace-all "\"" "" (first action))
                                      (make-action-button action-text
-                                                         (second action)
+                                                         (str:concat (second action)
+                                                                     "-story")
                                                          (not quoted))))
                                  story)
                                 (add-text-to-story line story))
@@ -109,21 +110,29 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
           action
           (next-action (add-text-to-action line action))))))
 
-(defmacro build-book (dtb-path)
+(defmacro build-book (dtb-path destination-package)
   "Build the whole dynamic text book from DTB-PATH."
   (with-open-file (*in* dtb-path)
-    (let ((*line-cursor* (read-line *in*)))
-      (loop
-         until (eq *line-cursor* :end-of-file)
-         collect (cond ((str:starts-with-p story-line *line-cursor*)
-                        `(defparameter
-                             ,(intern
-                               (format nil "~A-story"
-                                       (second (str:split story-line *line-cursor*))))
-                           ',(next-story)))
-                       ((str:starts-with-p action-line *line-cursor*)
-                        `(defparameter
-                             ,(intern
-                               (format nil "~A-action"
-                                       (second (str:split action-line *line-cursor*))))
-                           ',(next-action))))))))
+    (symbol-macrolet ((st (intern "*stories*" destination-package))
+                      (ac (intern "*actions*" destination-package)))
+      (let* ((*line-cursor* (read-line *in*))
+             (list-of-definitions
+              `((defvar ,st (make-hash-table :test 'equal))
+                (defvar ,ac (make-hash-table :test 'equal))
+                ,@(loop
+                     until (eq *line-cursor* :end-of-file)
+                     collect (cond ((str:starts-with-p story-line *line-cursor*)
+                                    (let* ((symbol-str (format nil "~A-story"
+                                                               (second (str:split story-line *line-cursor*)))))
+                                      `(hm:put ,st ,symbol-str ',(next-story))))
+                                   ((str:starts-with-p action-line *line-cursor*)
+                                    (let* ((symbol-str (format nil "~A-action"
+                                                               (second (str:split action-line *line-cursor*)))))
+                                      `(hm:put ,ac ,symbol-str ',(next-action)))))))))
+        `(progn
+           (defpackage ,destination-package
+             (:use #:cl)
+             (:export #:|*stories*|
+                      #:|*actions*|))
+           (in-package ,destination-package)
+           ,@list-of-definitions)))))
