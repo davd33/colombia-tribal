@@ -66,7 +66,8 @@
            #:make-action-button
            #:make-action
            #:action-text
-           #:add-text-to-action))
+           #:add-text-to-action
+           #:title->id))
 
 (defpackage #:game
   (:use #:cl #:dynamic-text-book)
@@ -95,8 +96,9 @@
            #:stop))
 
 (defpackage #:html
-  (:use #:cl #:spinneret)
-  (:export #:story->html))
+  (:use #:cl #:spinneret #:alexandria)
+  (:export #:story->html
+           #:action->html))
 
 (defpackage #:web-site
   (:use #:cl #:snooze #:jsons #:alexandria)

@@ -40,11 +40,25 @@ for a translation split into a list of several strings.
            ,@(cdadr for)
            :initial-value `(progn)))
 
+(defun action->html (action action-title story-destination)
+  "Converts an action to html."
+  (with-page (:title action-title)
+    (:p (dynamic-text-book:action-text action))
+    (:p (link :href (str:concat "/story/" story-destination)
+              "Continue"))))
+
 (defun story->html (story story-title)
-  "Converts a DTO:CV-DTO to html."
+  "Converts an story to html."
   (with-page (:title story-title)
     (:p (dynamic-text-book:story-text story))
     (repeat
       :for (action-button (dynamic-text-book:story-action-buttons story))
-      (:p (link :href (str:concat "/story/" (second action-button))
-                (first action-button))))))
+      (destructuring-bind (action-title story-destination indirection)
+          action-button
+        (if indirection
+            (:p (link :href (str:concat "/action/" (dynamic-text-book:title->id
+                                                    action-title)
+                                        "/" story-destination)
+                      action-title))
+            (:p (link :href (str:concat "/story/" story-destination)
+                      action-title)))))))
