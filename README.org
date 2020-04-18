@@ -15,3 +15,12 @@ my help.
 
 These ORG files will need some syntax in order to be interpreted by
 the game text engine.
+
+** Javascript
+
+The game will firstly use static HTML pages with links to other pages.
+
+We could as a bonus implement an optional javascript feature that
+would make the game nicer to play on a remote web-server. The
+javascript option must not be necessary to play the game so that
+everyone can play it!

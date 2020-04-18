@@ -1,33 +1,82 @@
-* PLACE The old market
+* STORY Intro
+
+Deep into the wilderness of south America, where human kind live in
+compassion with nature and the old ways are still remembered.  At the
+north of Colombia, there is a special mount named Sierra Nevada de
+Santa Marta.  At the south of this mount, there is a place that people
+call Guatapuri where it is believed that an elder indigenous community
+of humans lived: the Koguis.
+
+Their beliefs were closely linked with nature. At the center of the
+universe, the Mamas (sun power, male shamans) and the Sagas (moon
+power, female shamans) took care of the spiritual and social order of
+the community. The chosen children used to go through a formation from
+birth during 18 years in the Gonawindua mountain, the heart of the
+world, where they would develop a deep consciousness of natural
+phenomena. After this magical experience they become the guardians of
+the universe equilibrium.
+
+** ACTIONS
+"Be a sun child", The opening
+
+* STORY The opening
+
+As a Sun Children, you have gone through a lot of ceremonies.
+Now you can communicate with nature.
+
+Mamu is your spiritual guide, he supports you as you learn all the
+ways of the shamans.
+
+In the cavern, where you are, you can hear noises near the current of
+water on the east. You also see different colors on the walls. And
+remember Mamu explaining how they are the veins of the moutain.
+
+** ACTIONS
+Walk to river, The river
+
+* STORY The river
+
+You are now stepping on the cold water and feel totally safe.
+
+You look down, touch the water. Lights are coming out of your hands. It's warm.
+
+The river says: "You're touching my chest! I'm the spirit of water. I am
+here to clean and make the green grow.  First, there was the sea. All
+was dark. There was neither Sun nor Moon nor people, no plants or
+animals. The sea was everywhere, the water was the mother. She was the
+spirit of what was to come and she was thought and memory."
+** ACTIONS
+Pray to the water spirit, Pray water spirit
+
+* STORY The old market
 
 You arrive at a beautiful space in-between the trees that seem to be
-enchanted by the magics of the Pachamama, you feel fullfilled again.
+enchanted by the magics of the Pachamama, you feel fulfilled again.
+* STORY Pray water spirit
 
-* PLACE The river
+The spirit says: "I can be life, I can be death. I am limitless."
+** ACTIONS
+"Go back to the Cavern entrance.", Corazon
+* STORY Corazon
 
-You are now steping on the cold water and feel totally safe.
+Arriving back at the center of the cavern, you suddenly hear a heart beating faster and faster.
+It appears to come from the deep inners of the moutain.
+** ACTIONS
+"Kneel to listen the ground", Listen the ground
+
+* STORY Listen the ground
+
+You kneel on the ground, put your hands on it and feel them
+burning. You then settle your head to listen the earth. You listen carefully:
+you hear her screaming!
+
+"THEY ARRE DESTROYINNG ME.... It is PAAINFUL!"
+She cries.
 
 * ACTION Walk to river
 
+You feel attracted by the river and slowly walk towards it.
 
+* ACTION Pray to the water spirit
 
-* STORY The openning
-
-After all the ceremonies that you have gone through as a baby shaman
-you suddenly wake up in consciousness and realize that everything is
-dark. You want to open the eyes as hard as possible but only can you
-hear the song of water passing a couple of meters away from you.
-
-A voice says: "Welcome to school! haha"
-
-You: "To school?"
-
-The voice: "Indeed, here will you learn all the ways of the shamans,
-so that you can later and for ever guide our tribe into the present."
-
-As the voice stops, you start hearing new noises near where you
-previously heard a current of water.
-
-ACTIONS:
-GOTO, Walk to river, The river
-ASK, Ask to the voice to explain more, The voice explains more
+You kneel down, placing your face in the river's cold water.
