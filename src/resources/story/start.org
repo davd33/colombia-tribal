@@ -18,7 +18,7 @@ the universe equilibrium.
 
 ** ACTIONS
 "Be a sun child", The Opening
-
+** IMAGE the-mount.jpg
 * STORY The Opening
 
 As a Sun Children, you have gone through a lot of ceremonies.
@@ -33,7 +33,7 @@ remember Mamu explaining how they are the veins of the moutain.
 
 ** ACTIONS
 Walk To The River, The River
-
+** IMAGE the-mount.jpg
 * STORY The River
 
 You are now stepping on the cold water and feel totally safe.
@@ -48,7 +48,7 @@ spirit of what was to come and she was thought and memory."
 ** ACTIONS
 Pray to The Water Spirit, Pray the water spirit
 "Come back to the beginning", The Opening
-
+** IMAGE the-mount.jpg
 * STORY The Old Market
 
 You arrive at a beautiful space in-between the trees that seem to be
@@ -60,14 +60,14 @@ The spirit says: "I can be life, I can be death. I am limitless."
 
 ** ACTIONS
 "Go back to the Cavern entrance.", Walk back to the cavern
-
+** IMAGE pray-the-water-spirit.jpg
 * STORY Walk back to the cavern
 
 Arriving back at the center of the cavern, you suddenly hear a heart beating faster and faster.
 It appears to come from the deep inners of the moutain.
 ** ACTIONS
 "Kneel to listen the ground", Listen the ground
-
+** IMAGE the-cavern.jpg
 * STORY Listen the ground
 
 You kneel on the ground, put your hands on it and feel them
@@ -76,11 +76,12 @@ you hear her screaming!
 
 "THEY ARRE DESTROYINNG ME.... It is PAAINFUL!"
 She cries.
-
+** IMAGE listen-the-ground.jpg
 * ACTION Walk To The River
 
 You feel attracted by the river and slowly walk towards it.
-
+** IMAGE the-mount.jpg
 * ACTION Pray to The Water Spirit
 
 You kneel down, placing your face in the river's cold water.
+** IMAGE pray-the-water-spirit.jpg

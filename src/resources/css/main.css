@@ -7,11 +7,14 @@
  */
 
 html, body {
-    width: 1000px;
     margin: 0 auto;
     min-height: 100%;
-    background: #0D0D0D;
-    color: #0554F2;
+    color: #021373;
+}
+
+.container {
+    width: 1000px;
+    margin: auto;
 }
 
 .action > p {

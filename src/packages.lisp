@@ -60,12 +60,14 @@
   (:export #:build-book
            #:make-story
            #:story-text
+           #:story-image
            #:story-action-buttons
            #:add-text-to-story
            #:add-action-button-to-story
            #:make-action-button
            #:make-action
            #:action-text
+           #:action-image
            #:add-text-to-action
            #:title->id))
 

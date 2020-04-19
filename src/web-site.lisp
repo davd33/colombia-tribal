@@ -17,10 +17,12 @@
   (build-spinneret-html-response
     (let ((story (hm:get colombia-tribal-game:|*stories*| (str:downcase story-id))))
       (format t "~&~A~%" (dynamic-text-book:story-text story))
-      (html:story->html story story-id))))
+      (html:story->html story story-id (dynamic-text-book:story-image story)))))
 
 (defroute action
   (:get "text/html" action-id story-id)
   (build-spinneret-html-response
     (let ((action (hm:get colombia-tribal-game:|*actions*| (str:downcase action-id))))
-      (html:action->html action action-id (str:downcase story-id)))))
+      (html:action->html action action-id
+                         (str:downcase story-id)
+                         (dynamic-text-book:action-image action)))))

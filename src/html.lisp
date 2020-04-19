@@ -9,15 +9,20 @@
      ,@(loop for style in styles
           collect `(format nil "~a: ~a;~%" ,(string (first style)) ,(second style)))))
 
-(defmacro with-page ((&key title) &body body)
+(defmacro with-page ((&key title image-path) &body body)
   `(spinneret:with-html
      (:doctype)
      (:html
       (:head
        (:link :href "/css/main.css" :rel "stylesheet" :type "text/css")
-       (:title ,title))
+       (:title ,title)
+       (:style "html {"
+               (css (:background (str:concat "url(" ,image-path ")")))
+               "background-size: cover;"
+               "background-repeat: no-repeat;"
+               "}"))
       (:body
-       ,@body))))
+       (:div.container ,@body)))))
 
 (deftag link (text attrs &key href class)
   `(:a.contact-link
@@ -39,9 +44,9 @@ for a translation split into a list of several strings.
            ,@(cdadr for)
            :initial-value `(progn)))
 
-(defun action->html (action action-title story-destination)
+(defun action->html (action action-title story-destination action-image)
   "Converts an action to html."
-  (with-page (:title action-title)
+  (with-page (:title action-title :image-path (str:concat "/images/" action-image))
     (:div.action
      (repeat
        :for (p (str:split "<br/>" (dynamic-text-book:action-text action)))
@@ -49,9 +54,9 @@ for a translation split into a list of several strings.
      (:p (link :href (str:concat "/story/" story-destination)
                "Continue")))))
 
-(defun story->html (story story-title)
+(defun story->html (story story-title story-image)
   "Converts an story to html."
-  (with-page (:title story-title)
+  (with-page (:title story-title :image-path (str:concat "/images/" story-image))
     (:div.story
      (repeat
        :for (p (str:split "<br/>" (dynamic-text-book:story-text story)))

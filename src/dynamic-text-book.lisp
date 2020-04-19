@@ -10,6 +10,8 @@
 
 (defconstant actions-line "** ACTIONS")
 
+(defconstant image-line "** IMAGE ")
+
 (defconstant action-line "* ACTION ")
 
 (defmacro next-line (var &optional (default :none))
@@ -23,10 +25,11 @@ RESTART-CASES:
      (skip () nil)
      (use-value (v) v)))
 
-(defun make-story (text &optional action-buttons)
+(defun make-story (text &optional action-buttons image)
   "Create a story."
   (list text
-        action-buttons))
+        action-buttons
+        image))
 
 (defun story-text (story)
   "Return text bit of a STORY."
@@ -35,6 +38,16 @@ RESTART-CASES:
 (defun story-action-buttons (story)
   "Return action buttons of STORY."
   (second story))
+
+(defun story-image (story)
+  "Return image of STORY."
+  (third story))
+
+(defun set-image-story (img-file-name story)
+  "Return updated story with the given image file name."
+  (list (story-text story)
+        (story-action-buttons story)
+        img-file-name))
 
 (defun add-text-to-story (text story)
   "Return updated story with TEXT added."
@@ -55,14 +68,24 @@ If REF-P is not nil, text refers to an action function."
         destination-story
         ref-p))
 
-(defun make-action (text)
+(defun make-action (text &optional image)
   "Create an action.
 An action is a bit of text that explains the transition to another story."
-  (list text))
+  (list text
+        image))
 
 (defun action-text (action)
   "Return text bit of ACTION"
   (first action))
+
+(defun action-image (action)
+  "Return image name of ACTION."
+  (second action))
+
+(defun set-image-action (img-file-name action)
+  "Return updated action with the given image file name."
+  (list (action-text action)
+        img-file-name))
 
 (defun add-text-to-action (text action)
   "Return updated ACTION with TEXT added."
@@ -89,20 +112,25 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                 ;; we reached the next section
                 story
                 ;; we continue building the current story
-                (next-story (if (and (or actions-p action-line-p)
-                                     (not (str:emptyp line)))
-                                (add-action-button-to-story
-                                 (let ((action (mapcar #'str:trim (str:split "," line))))
-                                   (multiple-value-bind (action-text quoted)
-                                       (str:replace-all "\"" "" (first action))
-                                     (make-action-button action-text
-                                                         (title->id (second action))
-                                                         (not quoted))))
-                                 story)
-                                (add-text-to-story (if (str:emptyp line)
-                                                       "<br/>"
-                                                       (str:concat " " line))
-                                                   story))
+                (next-story (cond (;; ACTION-BUTTON
+                                   (and (or actions-p action-line-p)
+                                        (not (str:emptyp line)))
+                                   (add-action-button-to-story
+                                    (let ((action (mapcar #'str:trim (str:split "," line))))
+                                      (multiple-value-bind (action-text quoted)
+                                          (str:replace-all "\"" "" (first action))
+                                        (make-action-button action-text
+                                                            (title->id (second action))
+                                                            (not quoted))))
+                                    story))
+                                  (;; IMAGE FILE NAME
+                                   (str:starts-with-p image-line line)
+                                   (set-image-story (str:replace-all image-line "" line) story))
+                                  (;; STORY TEXT
+                                   t (add-text-to-story (if (str:emptyp line)
+                                                            "<br/>"
+                                                            (str:concat " " line))
+                                                        story)))
                             action-line-p)))
           story))))
 
@@ -115,7 +143,11 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
       (if (or (eq :end-of-file line)
               (str:starts-with-p top-level-line line))
           action
-          (next-action (add-text-to-action line action))))))
+          (next-action (cond (;; IMAGE FILE NAME
+                              (str:starts-with-p image-line line)
+                              (set-image-action (str:replace-all image-line "" line) action))
+                             (;; ACTION TEXT
+                              t (add-text-to-action line action))))))))
 
 (defmacro build-book (dtb-path destination-package)
   "Build the whole dynamic text book from DTB-PATH."
