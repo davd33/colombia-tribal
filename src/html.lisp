@@ -16,11 +16,12 @@
       (:head
        (:link :href "/css/main.css" :rel "stylesheet" :type "text/css")
        (:title ,title)
-       (:style "html {"
-               (css (:background (str:concat "url(" ,image-path ")")))
-               "background-size: cover;"
-               "background-repeat: no-repeat;"
-               "}"))
+       ;; (:style "html {"
+       ;;         (css (:background (str:concat "url(" ,image-path ")")))
+       ;;         "background-size: cover;"
+       ;;         "background-repeat: no-repeat;"
+       ;;         "}")
+       )
       (:body
        (:div.container ,@body)))))
 

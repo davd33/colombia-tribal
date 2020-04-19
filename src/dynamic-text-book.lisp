@@ -133,7 +133,7 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                                                             "<br/>"
                                                             (str:concat " " line))
                                                         story)))
-                            action-line-p)))
+                            (or action-line-p actions-p))))
           story))))
 
 (defun next-action (&optional action)

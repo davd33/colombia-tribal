@@ -4,36 +4,131 @@ Deep into the wilderness of south America, where human kind live in
 compassion with nature and the old ways are still remembered.  At the
 north of Colombia, there is a special mount named Sierra Nevada de
 Santa Marta.  At the south of this mount, there is a place that people
-call Guatapuri where it is believed that an elder indigenous community
-of humans lived: the Koguis.
+call Guatapuri where an elder indigenous community of humans live: the
+Koguis.
 
-Their beliefs were closely linked with nature. At the center of the
+Their beliefs are closely linked with nature. At the center of the
 universe, the Mamas (sun power, male shamans) and the Sagas (moon
-power, female shamans) took care of the spiritual and social order of
-the community. The chosen children used to go through a formation from
-birth during 18 years in the Gonawindua mountain, the heart of the
-world, where they would develop a deep consciousness of natural
+power, female shamans) take care of the spiritual and social order of
+the community. The chosen children are used to go through a formation
+from birth during 18 years in the Gonawindua mountain, the heart of
+the world, where they develop a deep consciousness of natural
 phenomena. After this magical experience they become the guardians of
 the universe equilibrium.
 
 ** ACTIONS
 "Be a sun child", The Opening
-** IMAGE the-mount.jpg
 * STORY The Opening
 
-As a Sun Children, you have gone through a lot of ceremonies.
+As a Sun child, you have gone through a lot of ceremonies.
 Now you can communicate with nature.
 
 Mamu is your spiritual guide, he supports you as you learn all the
 ways of the shamans.
 
-In the cavern, where you are, you can hear noises near the current of
-water on the east. You also see different colors on the walls. And
-remember Mamu explaining how they are the veins of the moutain.
+In the cavern where you are, you can hear beautiful melodies near the
+current of water on the east. You also see different colors on the
+walls, remembering that Mamu used to explain to you how they make the
+veins of the moutain.
+
+You're ready to leave the cavern and explore its surroundings.
 
 ** ACTIONS
-Walk To The River, The River
-** IMAGE the-mount.jpg
+"Walk out of the cavern", Out of the cavern
+* STORY Out of the cavern 2
+
+You're outside of the main entrance of the cavern, discovering.
+
+** ACTIONS
+"Go to the river", The River 2
+Hear the earth, The earth spirit
+"Observe the trees", The tree spirit 2
+Talk to the wind spirit, The wind spirit
+
+* ACTION Talk to the wind spirit
+You feel the wind on your face. It's warm and dry.
+
+* STORY The wind spirit
+You ask the wind: "How can I help Mother earth?"
+
+And the wind spirit tells you: "Fffffollow the Ccccolibriii."
+** ACTIONS
+"Back to the cavern", The cavern 3
+* STORY The cavern 3
+Back at the cavern entrance, you hear something behind your back. You
+turn around to see. There it is: the Colibri.
+
+The Colibri tells you: "The wind spirit sent me to find you! I
+traveled a long way to come here. I know the humans you're looking
+for: the ones that live in the city. A lot have happend lately. Weird
+stuff. No human leaves its cave now. Mother nature has sent a message
+to them. The message of sickness in their souls, now they are
+afraid. But nothing will change unless they ask forgiveness to La
+Pachamama!"
+
+End of the episode... for now :)
+** ACTIONS
+"Start again...", Intro
+* STORY Out of the cavern
+
+You're outside of the main entrance of the cavern, discovering.
+
+** ACTIONS
+"Go to the river", The River
+Hear the earth, The earth spirit
+"Observe the trees", The tree spirit
+* ACTION Hear the earth
+You kneel on the ground, put your hands on it and feel them
+burning. You then settle your head to listen the earth. You listen
+carefully: you hear her screaming!
+* STORY The tree spirit
+Walking to the most impressive tree, you recognize the beautiful
+leaves of the Mastre. The tree of the ancient wisdom.
+** ACTIONS
+Hug the tree, Huging the tree
+Ask the tree for climbing, Climbing the tree
+* STORY The tree spirit 2
+Walking to the most impressive tree, you recognize the beautiful
+leaves of the Mastre. The tree of the ancient wisdom.
+** ACTIONS
+Hug the tree, Huging the tree 2
+Ask the tree for climbing, Climbing the tree 2
+* ACTION Ask the tree for climbing
+You tell the tree that you to want see the other human inhabitants of the earth.
+* ACTION Hug the tree
+You hug the tree and feel the energy of La Pachamama.
+* STORY Huging the tree
+The tree tells you about the suffering of mother nature: "The mankind,
+the sons of the earth have developped their intelligence in amazing
+levels. However, they became blind by their own intellect and have
+disconnected them self from their spirit and mother's one. Our Mother."
+** ACTIONS
+"Back to the cavern", Out of the cavern
+* STORY Climbing the tree
+The tree allows you to climb. You search for other humans, looking at the horizon.
+
+The tree says: "Perhaps you cannot see them. Luckily, they are far
+away. For how long? I do not know. They massively cut down the trees,
+kidnap and kill the animals. They distroy the soil to cultivate
+violence, misery and suffering."
+** ACTIONS
+"Back to the cavern", Out of the cavern
+* STORY Huging the tree 2
+The tree tells you about the suffering of mother nature: "The mankind,
+the sons of the earth have developped their intelligence in amazing
+levels. However, they became blind by their own intellect and have
+disconnected them self from their spirit and mother's one. Our Mother."
+** ACTIONS
+"Back to the cavern", Out of the cavern 2
+* STORY Climbing the tree 2
+The tree allows you to climb. You search for other humans, looking at the horizon.
+
+The tree says: "Perhaps you cannot see them. Luckily, they are far
+away. For how long? I do not know. They massively cut down the trees,
+kidnap and kill the animals. They distroy the soil to cultivate
+violence, misery and suffering."
+** ACTIONS
+"Back to the cavern", Out of the cavern 2
 * STORY The River
 
 You are now stepping on the cold water and feel totally safe.
@@ -45,43 +140,46 @@ here to clean and make the green grow.  First, there was the sea. All
 was dark. There was neither Sun nor Moon nor people, no plants or
 animals. The sea was everywhere, the water was the mother. She was the
 spirit of what was to come and she was thought and memory."
-** ACTIONS
-Pray to The Water Spirit, Pray the water spirit
-"Come back to the beginning", The Opening
-** IMAGE the-mount.jpg
-* STORY The Old Market
 
-You arrive at a beautiful space in-between the trees that seem to be
-enchanted by the magics of the Pachamama, you feel fulfilled again.
-
-* STORY Pray the water spirit
-
-The spirit says: "I can be life, I can be death. I am limitless."
+The river makes a pause, and continues: "I am also a part of you. I support your existence."
 
 ** ACTIONS
-"Go back to the Cavern entrance.", Walk back to the cavern
-** IMAGE pray-the-water-spirit.jpg
+Pray to The Water Spirit, Out of the cavern
+* STORY The River 2
+
+You are now stepping on the cold water and feel totally safe.
+
+You look down, touch the water. Lights are coming out of your hands. It's warm.
+
+The river says: "You're touching my chest! I'm the spirit of water. I am
+here to clean and make the green grow.  First, there was the sea. All
+was dark. There was neither Sun nor Moon nor people, no plants or
+animals. The sea was everywhere, the water was the mother. She was the
+spirit of what was to come and she was thought and memory."
+
+The river makes a pause, and continues: "I am also a part of you. I support your existence."
+
+** ACTIONS
+Pray to The Water Spirit, Out of the cavern
 * STORY Walk back to the cavern
 
 Arriving back at the center of the cavern, you suddenly hear a heart beating faster and faster.
 It appears to come from the deep inners of the moutain.
 ** ACTIONS
 "Kneel to listen the ground", Listen the ground
-** IMAGE the-cavern.jpg
-* STORY Listen the ground
+* STORY The earth spirit
+The earth spirit says: "THEY ARRE DESTROYINNG ME.... It is PAAINFUL!"
 
-You kneel on the ground, put your hands on it and feel them
-burning. You then settle your head to listen the earth. You listen carefully:
-you hear her screaming!
-
-"THEY ARRE DESTROYINNG ME.... It is PAAINFUL!"
 She cries.
-** IMAGE listen-the-ground.jpg
-* ACTION Walk To The River
 
-You feel attracted by the river and slowly walk towards it.
-** IMAGE the-mount.jpg
+In that moment you are conviced that you need to help her. Your eyes
+light up and you're able to see absolutely every possible connection
+between the nature, the body and the whole humanity. It's not just the
+veins of the cavern, you are now able to distinguish each one of all
+the small threads in various colors.
+
+** ACTIONS
+"Back to the cavern", Out of the cavern 2
 * ACTION Pray to The Water Spirit
-
 You kneel down, placing your face in the river's cold water.
-** IMAGE pray-the-water-spirit.jpg
+The spirit says: "I can be life, I can be death. I am limitless."

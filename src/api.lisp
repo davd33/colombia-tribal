@@ -1,6 +1,6 @@
 (in-package #:api)
 
-(setf snooze:*catch-errors* :verbose)
+;;(setf snooze:*catch-errors* :verbose)
 
 ;; START HTTP SERVER
 (defclass snooze-acceptor (hunchentoot:easy-acceptor) ())
@@ -27,4 +27,5 @@
 (defun start (&key (port 5000))
   (stop)
   (setq *server*
-        (hunchentoot:start (make-instance 'snooze-acceptor :port port))))
+        (hunchentoot:start (make-instance 'snooze-acceptor :port port)))
+  (format t "Program started: Open now the following URL in your web browser: http://localhost:5000"))
