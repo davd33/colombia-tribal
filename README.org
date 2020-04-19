@@ -2,6 +2,11 @@
 
 A story game in the tribal epoch of Colombia.
 
+This game tells a bit of the life of the famous indigenous community Koguis.
+You will experience a bit of their beliefs and habits in choosing between several text options.
+
+A totally text based game!
+
 * Project
 
 ** Create executable
