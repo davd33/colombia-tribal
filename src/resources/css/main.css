@@ -1,31 +1,36 @@
 /* COLOR PALETTE:
-#021373 - dark
-#0540F2 - blue
-#0554F2 - light
-#0583F2 - lighter
-#0D0D0D - darker
+#829FD9 - dark
+#027368 - blue
+#BABF2A - light
+#8C8303 - lighter
+#594302 - darker
  */
 
 html, body {
     margin: 0 auto;
     min-height: 100%;
-    color: #021373;
+    color: #829FD9;
 }
 
 .container {
     width: 1000px;
     margin: auto;
+    border: 2px
+    box-shadow: 2px 2px 0 #594302;
+    background: transparent;
+    opacity: .8;
+    padding: 0 10px;
 }
 
 .action > p {
     font-size: 1.5em;
-    color: #0540F2;
+    color: #027368;
     text-emphasis: italic;
 }
 
-.action a {
+.action a, .action a:visited {
     font-size: .8em;
-    color: #0583f2;
+    color: #027368;
 }
 
 .story > p {
@@ -33,7 +38,7 @@ html, body {
     text-align: justify;
 }
 
-.story > .action-buttons a {
+.story > .action-buttons a, .story > .action-buttons a:visited {
     font-size: 1.2em;
-    color: #0583f2;
+    color: #027368;
 }

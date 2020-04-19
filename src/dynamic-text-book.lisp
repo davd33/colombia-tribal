@@ -4,15 +4,15 @@
 
 (defvar *in* nil)
 
-(defconstant top-level-line "* ")
+(defparameter top-level-line "* ")
 
-(defconstant story-line "* STORY ")
+(defparameter story-line "* STORY ")
 
-(defconstant actions-line "** ACTIONS")
+(defparameter actions-line "** ACTIONS")
 
-(defconstant image-line "** IMAGE ")
+(defparameter image-line "** IMAGE ")
 
-(defconstant action-line "* ACTION ")
+(defparameter action-line "* ACTION ")
 
 (defmacro next-line (var &optional (default :none))
   "SETF VAR reading a line from *in*
