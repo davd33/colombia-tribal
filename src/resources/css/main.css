@@ -34,6 +34,10 @@ html, body {
     text-decoration: overline;
 }
 
+.action a:hover {
+    color: darkred;
+}
+
 .story > p {
     font-size: 1.5em;
     text-align: justify;
@@ -43,4 +47,8 @@ html, body {
     font-size: 1.2em;
     color: white;
     text-decoration: overline;
+}
+
+.story > .action-buttons a:hover {
+    color: darkred;
 }

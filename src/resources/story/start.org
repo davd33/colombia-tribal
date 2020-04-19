@@ -4,7 +4,7 @@ Deep into the wilderness of south America, where human kind live in
 compassion with nature and the old ways are still remembered.  At the
 north of Colombia, there is a special mount named Sierra Nevada de
 Santa Marta.  At the south of this mount, there is a place that people
-call Guatapuri where an elder indigenous community of humans live: the
+call Guatapuri where an elder indigenous community of humans live: The
 Koguis.
 
 Their beliefs are closely linked with nature. At the center of the
@@ -27,9 +27,9 @@ Mamu is your spiritual guide, he supports you as you learn all the
 ways of the shamans.
 
 In the cavern where you are, you can hear beautiful melodies near the
-current of water on the east. You also see different colors on the
+current of water on the east. You also see some kind of wires on the
 walls, remembering that Mamu used to explain to you how they make the
-veins of the moutain.
+veins of the mountain.
 
 You're ready to leave the cavern and explore its surroundings.
 
@@ -60,13 +60,18 @@ turn around to see. There it is: the Colibri.
 
 The Colibri tells you: "The wind spirit sent me to find you! I
 traveled a long way to come here. I know the humans you're looking
-for: the ones that live in the city. A lot have happend lately. Weird
-stuff. No human leaves its cave now. Mother nature has sent a message
-to them. The message of sickness in their souls, now they are
-afraid. But nothing will change unless they ask forgiveness to La
-Pachamama!"
+for: the ones that live in the city. A lot has happened lately. Weird
+stuff. No human leaves its nest now. Mother nature has sent a message
+to them. The message of sickness in their souls, in the form of a
+virus. They are afraid. But nothing will change unless they ask
+forgiveness to La Pachamama!
 
-End of the episode... for now :)
+How to convince them? Hihhi
+
+That is your mission my shaman friend!"
+
+
+More in the next episode...  :)
 ** ACTIONS
 "Start again...", Intro
 * STORY Out of the cavern
@@ -85,23 +90,23 @@ carefully: you hear her screaming!
 Walking to the most impressive tree, you recognize the beautiful
 leaves of the Mastre. The tree of the ancient wisdom.
 ** ACTIONS
-Hug the tree, Huging the tree
+Hug the tree, Hugging the tree
 Ask the tree for climbing, Climbing the tree
 * STORY The tree spirit 2
 Walking to the most impressive tree, you recognize the beautiful
 leaves of the Mastre. The tree of the ancient wisdom.
 ** ACTIONS
-Hug the tree, Huging the tree 2
+Hug the tree, Hugging the tree 2
 Ask the tree for climbing, Climbing the tree 2
 * ACTION Ask the tree for climbing
 You tell the tree that you to want see the other human inhabitants of the earth.
 * ACTION Hug the tree
 You hug the tree and feel the energy of La Pachamama.
-* STORY Huging the tree
+* STORY Hugging the tree
 The tree tells you about the suffering of mother nature: "The mankind,
-the sons of the earth have developped their intelligence in amazing
+the sons of the earth have developed their intelligence in amazing
 levels. However, they became blind by their own intellect and have
-disconnected them self from their spirit and mother's one. Our Mother."
+disconnected themselves from their spirit and mother's one. Our Mother."
 ** ACTIONS
 "Back to the cavern", Out of the cavern
 * STORY Climbing the tree
@@ -109,15 +114,15 @@ The tree allows you to climb. You search for other humans, looking at the horizo
 
 The tree says: "Perhaps you cannot see them. Luckily, they are far
 away. For how long? I do not know. They massively cut down the trees,
-kidnap and kill the animals. They distroy the soil to cultivate
+kidnap and kill the animals. They destroy the soil to cultivate
 violence, misery and suffering."
 ** ACTIONS
 "Back to the cavern", Out of the cavern
-* STORY Huging the tree 2
+* STORY Hugging the tree 2
 The tree tells you about the suffering of mother nature: "The mankind,
-the sons of the earth have developped their intelligence in amazing
+the sons of the earth have developed their intelligence in amazing
 levels. However, they became blind by their own intellect and have
-disconnected them self from their spirit and mother's one. Our Mother."
+disconnected themselves from their spirit and mother's one. Our Mother."
 ** ACTIONS
 "Back to the cavern", Out of the cavern 2
 * STORY Climbing the tree 2
@@ -125,7 +130,7 @@ The tree allows you to climb. You search for other humans, looking at the horizo
 
 The tree says: "Perhaps you cannot see them. Luckily, they are far
 away. For how long? I do not know. They massively cut down the trees,
-kidnap and kill the animals. They distroy the soil to cultivate
+kidnap and kill the animals. They destroy the soil to cultivate
 violence, misery and suffering."
 ** ACTIONS
 "Back to the cavern", Out of the cavern 2
@@ -164,7 +169,7 @@ Pray to The Water Spirit, Out of the cavern 2
 * STORY Walk back to the cavern
 
 Arriving back at the center of the cavern, you suddenly hear a heart beating faster and faster.
-It appears to come from the deep inners of the moutain.
+It appears to come from the deep inside of the mountain.
 ** ACTIONS
 "Kneel to listen the ground", Listen the ground
 * STORY The earth spirit
@@ -172,7 +177,7 @@ The earth spirit says: "THEY ARRE DESTROYINNG ME.... It is PAAINFUL!"
 
 She cries.
 
-In that moment you are conviced that you need to help her. Your eyes
+In that moment you are convinced that you need to help her. Your eyes
 light up and you're able to see absolutely every possible connection
 between the nature, the body and the whole humanity. It's not just the
 veins of the cavern, you are now able to distinguish each one of all
