@@ -14,8 +14,7 @@
      (:doctype)
      (:html
       (:head
-       (:link :href "/css/cv.css" :rel "stylesheet" :type "text/css")
-       (:link :href "/css/font-awesome.css" :rel "stylesheet" :type "text/css")
+       (:link :href "/css/main.css" :rel "stylesheet" :type "text/css")
        (:title ,title))
       (:body
        ,@body))))
@@ -43,22 +42,25 @@ for a translation split into a list of several strings.
 (defun action->html (action action-title story-destination)
   "Converts an action to html."
   (with-page (:title action-title)
-    (:p (dynamic-text-book:action-text action))
-    (:p (link :href (str:concat "/story/" story-destination)
-              "Continue"))))
+    (:div.action
+     (:p (dynamic-text-book:action-text action))
+     (:p (link :href (str:concat "/story/" story-destination)
+               "Continue")))))
 
 (defun story->html (story story-title)
   "Converts an story to html."
   (with-page (:title story-title)
-    (:p (dynamic-text-book:story-text story))
-    (repeat
-      :for (action-button (dynamic-text-book:story-action-buttons story))
-      (destructuring-bind (action-title story-destination indirection)
-          action-button
-        (if indirection
-            (:p (link :href (str:concat "/action/" (dynamic-text-book:title->id
-                                                    action-title)
-                                        "/" story-destination)
-                      action-title))
-            (:p (link :href (str:concat "/story/" story-destination)
-                      action-title)))))))
+    (:div.story
+     (:p (dynamic-text-book:story-text story))
+     (:div.action-buttons
+      (repeat
+        :for (action-button (dynamic-text-book:story-action-buttons story))
+        (destructuring-bind (action-title story-destination indirection)
+            action-button
+          (if indirection
+              (:p (link :href (str:concat "/action/" (dynamic-text-book:title->id
+                                                      action-title)
+                                          "/" story-destination)
+                        action-title))
+              (:p (link :href (str:concat "/story/" story-destination)
+                        action-title)))))))))
