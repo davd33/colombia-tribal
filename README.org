@@ -2,7 +2,26 @@
 
 A story game in the tribal epoch of Colombia.
 
-* Development
+* Project
+
+** Game engine
+
+The Game story and actions are specified in ORG files. These contain
+all the story and define possible actions so that the player can
+navigate from one dialogue to another.
+
+The package =DYNAMIC-TEXT-BOOK= contains the necessary tools to compile
+the ORG file into Lisp code. The compilation creates a new package and
+two hash-tables:
+ - =|*stories*|= A Story contains some text as well as actions for the
+   player to choose from,
+ - =|*actions*|= An action is a text that you want the player to read
+   as a transition between two stories.
+
+The package =GAME= uses =DYNAMIC-TEXT-BOOK:BUILD-BOOK= in order to
+compile the game defined by the file [[file:src/resources/story/start.org][start.org]].
+
+* Development log
 
 ** Story line and actions
 
