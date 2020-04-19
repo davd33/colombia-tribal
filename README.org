@@ -4,6 +4,48 @@ A story game in the tribal epoch of Colombia.
 
 * Project
 
+** Create executable
+
+You can create an executable with [[https://github.com/roswell/roswell][roswell]], running the following 2 commands:
+
+#+BEGIN_SRC sh
+cd /path/to/colombia-tribal/src
+ros build ../colombia-tribal.ros
+#+END_SRC
+
+Beware! Ensure you run the =ros build= command from within the =src=
+directory!
+
+** Run the executable
+
+Once you have built the executable, simply call the executable from
+the terminal as follows:
+
+#+BEGIN_SRC sh
+cd src/
+../colombia-tribal
+#+END_SRC
+
+Again, in order for the process to find all css files and images, it needs to be ran
+from the src directory.
+
+** Zip release
+
+The executable found in the release was tested on ubuntu 18.04 and debian 10.
+
+To start the game, run the following commands in the terminal, from
+inside the directory containing the zip file:
+
+#+BEGIN_SRC sh
+unzip ./colombia-tribal-1.0.0.zip
+cd ./colombia-tribal-1.0.0/
+./colombia-tribal
+#+END_SRC
+
+** Web URL
+
+You can as well find the game at the following URL: http://172.105.86.13:5000/
+
 ** Game engine
 
 The Game story and actions are specified in ORG files. These contain
