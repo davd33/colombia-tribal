@@ -48,6 +48,7 @@ for a translation split into a list of several strings.
 (defun action->html (action action-title story-destination action-image)
   "Converts an action to html."
   (with-page (:title action-title :image-path (str:concat "/images/" action-image))
+    (:h1 action-title)
     (:div.action
      (repeat
        :for (p (str:split "<br/>" (dynamic-text-book:action-text action)))
@@ -58,6 +59,7 @@ for a translation split into a list of several strings.
 (defun story->html (story story-title story-image)
   "Converts an story to html."
   (with-page (:title story-title :image-path (str:concat "/images/" story-image))
+    (:h1 story-title)
     (:div.story
      (repeat
        :for (p (str:split "<br/>" (dynamic-text-book:story-text story)))
@@ -69,7 +71,7 @@ for a translation split into a list of several strings.
             action-button
           (if indirection
               (:p (link :href (str:concat "/action/" (dynamic-text-book:title->id
-                                                      action-title)
+                                                      action-title "-action")
                                           "/" story-destination)
                         action-title))
               (:p (link :href (str:concat "/story/" story-destination)

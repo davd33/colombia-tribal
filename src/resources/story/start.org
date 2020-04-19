@@ -160,7 +160,7 @@ spirit of what was to come and she was thought and memory."
 The river makes a pause, and continues: "I am also a part of you. I support your existence."
 
 ** ACTIONS
-Pray to The Water Spirit, Out of the cavern
+Pray to The Water Spirit, Out of the cavern 2
 * STORY Walk back to the cavern
 
 Arriving back at the center of the cavern, you suddenly hear a heart beating faster and faster.
@@ -182,4 +182,5 @@ the small threads in various colors.
 "Back to the cavern", Out of the cavern 2
 * ACTION Pray to The Water Spirit
 You kneel down, placing your face in the river's cold water.
+
 The spirit says: "I can be life, I can be death. I am limitless."

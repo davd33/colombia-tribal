@@ -1,6 +1,6 @@
 (in-package #:api)
 
-;;(setf snooze:*catch-errors* :verbose)
+(setf snooze:*catch-errors* :verbose)
 
 ;; START HTTP SERVER
 (defclass snooze-acceptor (hunchentoot:easy-acceptor) ())

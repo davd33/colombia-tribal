@@ -69,7 +69,8 @@
            #:action-text
            #:action-image
            #:add-text-to-action
-           #:title->id))
+           #:title->id
+           #:id->title))
 
 (defpackage #:game
   (:use #:cl #:dynamic-text-book)
