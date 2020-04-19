@@ -16,11 +16,11 @@
       (:head
        (:link :href "/css/main.css" :rel "stylesheet" :type "text/css")
        (:title ,title)
-       ;; (:style "html {"
-       ;;         (css (:background (str:concat "url(" ,image-path ")")))
-       ;;         "background-size: cover;"
-       ;;         "background-repeat: no-repeat;"
-       ;;         "}")
+       (:style "html {"
+               (css (:background (str:concat "url(" ,image-path ")")))
+               "background-size: cover;"
+               "background-repeat: no-repeat;"
+               "}")
        )
       (:body
        (:div.container ,@body)))))
@@ -47,7 +47,7 @@ for a translation split into a list of several strings.
 
 (defun action->html (action action-title story-destination action-image)
   "Converts an action to html."
-  (with-page (:title action-title :image-path (str:concat "/images/" action-image))
+  (with-page (:title action-title :image-path "/images/the-cavern.jpg")
     (:h1 action-title)
     (:div.action
      (repeat
@@ -58,7 +58,7 @@ for a translation split into a list of several strings.
 
 (defun story->html (story story-title story-image)
   "Converts an story to html."
-  (with-page (:title story-title :image-path (str:concat "/images/" story-image))
+  (with-page (:title story-title :image-path "/images/the-cavern.jpg")
     (:h1 story-title)
     (:div.story
      (repeat

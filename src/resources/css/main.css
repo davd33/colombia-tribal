@@ -1,15 +1,16 @@
 /* COLOR PALETTE:
-#829FD9 - dark
-#027368 - blue
-#BABF2A - light
-#8C8303 - lighter
-#594302 - darker
+#F2C185 - dark
+#F2A057 - blue
+#F2D1B3 - light
+#BF6430 - lighter
+#733620 - darker
  */
 
 html, body {
     margin: 0 auto;
     min-height: 100%;
-    color: #829FD9;
+    color: #22;
+    text-shadow: 1px 1px;
 }
 
 .container {
@@ -17,20 +18,20 @@ html, body {
     margin: auto;
     border: 2px
     box-shadow: 2px 2px 0 #594302;
-    background: transparent;
+    background: rgba(242,209,179,.7);
     opacity: .8;
     padding: 0 10px;
 }
 
 .action > p {
     font-size: 1.5em;
-    color: #027368;
     text-emphasis: italic;
 }
 
 .action a, .action a:visited {
     font-size: .8em;
-    color: #027368;
+    color: white;
+    text-decoration: overline;
 }
 
 .story > p {
@@ -40,5 +41,6 @@ html, body {
 
 .story > .action-buttons a, .story > .action-buttons a:visited {
     font-size: 1.2em;
-    color: #027368;
+    color: white;
+    text-decoration: overline;
 }
