@@ -43,7 +43,9 @@ for a translation split into a list of several strings.
   "Converts an action to html."
   (with-page (:title action-title)
     (:div.action
-     (:p (dynamic-text-book:action-text action))
+     (repeat
+       :for (p (str:split "<br/>" (dynamic-text-book:action-text action)))
+       (:p p))
      (:p (link :href (str:concat "/story/" story-destination)
                "Continue")))))
 
@@ -51,7 +53,9 @@ for a translation split into a list of several strings.
   "Converts an story to html."
   (with-page (:title story-title)
     (:div.story
-     (:p (dynamic-text-book:story-text story))
+     (repeat
+       :for (p (str:split "<br/>" (dynamic-text-book:story-text story)))
+       (:p p))
      (:div.action-buttons
       (repeat
         :for (action-button (dynamic-text-book:story-action-buttons story))

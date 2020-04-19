@@ -99,7 +99,10 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                                                          (title->id (second action))
                                                          (not quoted))))
                                  story)
-                                (add-text-to-story line story))
+                                (add-text-to-story (if (str:emptyp line)
+                                                       "<br/>"
+                                                       (str:concat " " line))
+                                                   story))
                             action-line-p)))
           story))))
 

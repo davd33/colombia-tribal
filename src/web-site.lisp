@@ -16,6 +16,7 @@
   (:get "text/html" story-id)
   (build-spinneret-html-response
     (let ((story (hm:get colombia-tribal-game:|*stories*| (str:downcase story-id))))
+      (format t "~&~A~%" (dynamic-text-book:story-text story))
       (html:story->html story story-id))))
 
 (defroute action
