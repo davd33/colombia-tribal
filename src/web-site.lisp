@@ -10,7 +10,7 @@
   (build-spinneret-html-response
     (let ((intro-story
            (hm:get colombia-tribal-game:|*stories*| "intro-story")))
-      (html:story->html intro-story "Introduction"))))
+      (html:story->html intro-story "Introduction" "the-mount.jpg"))))
 
 (defroute story
   (:get "text/html" story-id)

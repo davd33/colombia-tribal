@@ -112,7 +112,11 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                 ;; we reached the next section
                 story
                 ;; we continue building the current story
-                (next-story (cond (;; ACTION-BUTTON
+                (next-story (cond (;; IMAGE FILE NAME
+                                   (str:starts-with-p image-line line)
+                                   (set-image-story (str:replace-all image-line "" line) story))
+
+                                  (;; ACTION-BUTTON
                                    (and (or actions-p action-line-p)
                                         (not (str:emptyp line)))
                                    (add-action-button-to-story
@@ -123,9 +127,7 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                                                             (title->id (second action))
                                                             (not quoted))))
                                     story))
-                                  (;; IMAGE FILE NAME
-                                   (str:starts-with-p image-line line)
-                                   (set-image-story (str:replace-all image-line "" line) story))
+
                                   (;; STORY TEXT
                                    t (add-text-to-story (if (str:emptyp line)
                                                             "<br/>"
