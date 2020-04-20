@@ -57,7 +57,7 @@
 
 (defpackage #:dynamic-text-book
   (:use #:cl #:alexandria)
-  (:export #:build-book
+  (:export #:defbook
            #:make-story
            #:story-text
            #:story-image

@@ -19,8 +19,8 @@
 RESTART-CASES:
  - skip, returns nil"
   `(restart-case (setf ,var ,(if (eq :none default)
-                                 (print `(read-line *in*))
-                                 (print `(read-line *in* nil))))
+                                 `(read-line *in*)
+                                 `(read-line *in* nil)))
      (use-eof () (setf ,var :end-of-file))
      (skip () nil)
      (use-value (v) v)))
@@ -161,7 +161,7 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                              (;; ACTION TEXT
                               t (add-text-to-action line action))))))))
 
-(defmacro build-book (dtb-path destination-package)
+(defmacro defbook (dtb-path destination-package)
   "Build the whole dynamic text book from DTB-PATH."
   (with-open-file (*in* dtb-path)
     (symbol-macrolet ((st (intern "*stories*" destination-package))

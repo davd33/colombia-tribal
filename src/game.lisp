@@ -9,4 +9,4 @@
     (:export #:|*stories*|
              #:|*actions*|))
 
-  (build-book "./resources/story/start.org" :colombia-tribal-game))
+  (defbook "./resources/story/start.org" :colombia-tribal-game))

@@ -1,0 +1,37 @@
+#+TITLE: Specification of Dynamic Text Book files
+
+Dynamic Text Book (= DTB) files allow for the creation of text-based RPG
+games.
+
+* Syntax
+
+DTB files contain a couple of commands that specify how the game
+should be. It defines the possible actions that the player can choose
+in order to travel through the game. It also defines the text that the
+player will read from panel to panel (= from slide to slide).
+
+** Story
+
+*** Specification
+
+#+BEGIN_SRC org
+* STORY Title, unique-identifier
+#+END_SRC
+
+*** Description
+
+A story defines a slide on which an action takes place. It could be
+anything: from the description of a landscape to the dialogue of a non
+player character.
+
+A story can be created within DTB files by writing a line starting
+with =* STORY =. These lines are read by the DTB parser as a headline
+meaning that the following lines will be associated to a story.
+
+Story lines contain the title of the story, as it should be displayed
+in-game to the player. They contain as well an identifier which must
+uniquely identify the story. Following is an example of a story line:
+
+#+BEGIN_SRC org
+* STORY The green forest, the-green-forest
+#+END_SRC
