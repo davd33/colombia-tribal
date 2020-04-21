@@ -161,29 +161,52 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                              (;; ACTION TEXT
                               t (add-text-to-action line action))))))))
 
+(define-condition not-a-package-error (error)
+  ((text :initarg :text :reader text)))
+
+(define-condition missing-export-error (error)
+  ((text :initarg :text :reader text)))
+
+(defun symbol-of (str package)
+  "Return a symbol named STR interned in PACKAGE."
+  (intern str package))
+
+(defun has-symbols (symbols package)
+  "Return T when all strings in SYMBOLS are defined in PACKAGE (packagep)."
+  (not (position
+        nil
+        (mapcar #'(lambda (s) (find-symbol s package))
+                symbols))))
+
 (defmacro defbook (dtb-path destination-package)
-  "Build the whole dynamic text book from DTB-PATH."
-  (with-open-file (*in* dtb-path)
-    (symbol-macrolet ((st (intern "*stories*" destination-package))
-                      (ac (intern "*actions*" destination-package)))
-      (let* ((*line-cursor* (read-line *in*))
-             (list-of-definitions
-              `((defvar ,st (make-hash-table :test 'equal))
-                (defvar ,ac (make-hash-table :test 'equal))
-                ,@(loop
-                     until (eq *line-cursor* :end-of-file)
-                     collect (cond ((str:starts-with-p story-line *line-cursor*)
-                                    (let* ((symbol-str (title->id (second (str:split story-line *line-cursor*))
-                                                                  "-story")))
-                                      `(hm:put ,st ,symbol-str ',(next-story))))
-                                   ((str:starts-with-p action-line *line-cursor*)
-                                    (let* ((symbol-str (title->id (second (str:split action-line *line-cursor*))
-                                                                  "-action")))
-                                      `(hm:put ,ac ,symbol-str ',(next-action)))))))))
-        `(progn
-           (defpackage ,destination-package
-             (:use #:cl)
-             (:export #:|*stories*|
-                      #:|*actions*|))
-           (in-package ,destination-package)
-           ,@list-of-definitions)))))
+  "Build the whole dynamic text book from DTB-PATH.
+DESTINATION-PACKAGE must be a package-designator to an existing package so that.
+Otherwise the condition 'not-a-package will be signaled.
+It must as well export the following two symbols: #:|*stories*| and #:|*actions*|."
+  (cond
+    ((not (packagep (find-package destination-package)))
+     (error 'not-a-package-error :text "DESTINATION-PACKAGE must be an existing package."))
+    ((not (has-symbols '("*stories*" "*actions*")
+                       destination-package))
+     (error 'missing-export-error :text "DESTINATION-PACKAGE must export |*stories*| and |*actions*|."))
+    (t
+     (with-open-file (*in* dtb-path)
+       (symbol-macrolet ((st (intern "*stories*" destination-package))
+                         (ac (intern "*actions*" destination-package)))
+         (let* ((*line-cursor* (read-line *in*))
+                (list-of-definitions
+                 `((defvar ,st (make-hash-table :test 'equal))
+                   (defvar ,ac (make-hash-table :test 'equal))
+                   ,@(loop
+                        until (eq *line-cursor* :end-of-file)
+                        collect (cond ((str:starts-with-p story-line *line-cursor*)
+                                       (let* ((symbol-str (title->id (second (str:split story-line *line-cursor*))
+                                                                     "-story")))
+                                         `(hm:put ,st ,symbol-str ',(next-story))))
+                                      ((str:starts-with-p action-line *line-cursor*)
+                                       (let* ((symbol-str (title->id (second (str:split action-line *line-cursor*))
+                                                                     "-action")))
+                                         `(hm:put ,ac ,symbol-str ',(next-action)))))))))
+           `(progn
+              (in-package ,destination-package)
+              ,@list-of-definitions)))))))
