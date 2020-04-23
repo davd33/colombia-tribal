@@ -70,10 +70,24 @@ How to convince them? Hihhi
 
 That is your mission my shaman friend!"
 
-
-More in the next episode...  :)
 ** ACTIONS
-"Start again...", Intro
+"[Ask] What do you mean, my mission?", the-cavern-colibri-mission
+
+* STORY, The cavern, the-cavern-colibri-mission
+
+Hiiih I have been asking myself the same question for about all my
+youth. Until one day, flying back from the sea (where I used to hang
+out with a friend and bath in the salty water), I found the forest
+crying in the fire. I felt that there was only one thing I could do:
+Save the forest!
+
+I flought to the nearest river, took water in my mouth and went as
+fast as possible to the forest to calm the fire. This day I knew what
+my mission was: Do my part of the work to help the living.
+
+** ACTIONS
+"Continue", the-cavern-3
+
 * STORY, The cavern, the-cavern
 
 You're outside of the main entrance of the cavern, discovering.
