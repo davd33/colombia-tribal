@@ -55,7 +55,7 @@
            #:with-mapped-slot
            #:with-renamed-slot))
 
-(defpackage #:dynamic-text-book
+(defpackage #:interactive-text-book
   (:use #:cl #:alexandria)
   (:export #:defbook
            #:make-story
@@ -73,7 +73,7 @@
            #:id->title))
 
 (defpackage #:game
-  (:use #:cl #:dynamic-text-book)
+  (:use #:cl #:interactive-text-book)
   (:export #:compile-colombia-tribal))
 
 (defpackage #:dao

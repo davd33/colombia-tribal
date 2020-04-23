@@ -51,7 +51,7 @@ for a translation split into a list of several strings.
     (:h1 action-title)
     (:div.action
      (repeat
-       :for (p (str:split "<br/>" (dynamic-text-book:action-text action)))
+       :for (p (str:split "<br/>" (interactive-text-book:action-text action)))
        (:p p))
      (:p (link :href (str:concat "/story/" story-destination)
                "Continue")))))
@@ -62,15 +62,15 @@ for a translation split into a list of several strings.
     (:h1 story-title)
     (:div.story
      (repeat
-       :for (p (str:split "<br/>" (dynamic-text-book:story-text story)))
+       :for (p (str:split "<br/>" (interactive-text-book:story-text story)))
        (:p p))
      (:div.action-buttons
       (repeat
-        :for (action-button (dynamic-text-book:story-action-buttons story))
+        :for (action-button (interactive-text-book:story-action-buttons story))
         (destructuring-bind (action-title story-destination indirection)
             action-button
           (if indirection
-              (:p (link :href (str:concat "/action/" (dynamic-text-book:title->id
+              (:p (link :href (str:concat "/action/" (interactive-text-book:title->id
                                                       action-title "-action")
                                           "/" story-destination)
                         action-title))

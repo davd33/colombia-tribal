@@ -1,4 +1,13 @@
-(in-package #:dynamic-text-book)
+(in-package #:interactive-text-book)
+
+(define-condition not-a-package-error (error)
+  ((text :initarg :text :reader text)))
+
+(define-condition missing-export-error (error)
+  ((text :initarg :text :reader text)))
+
+(define-condition illegal-headline-value (error)
+  ((text :initarg :text :reader text)))
 
 (defvar *line-cursor* nil)
 
@@ -25,11 +34,16 @@ RESTART-CASES:
      (skip () nil)
      (use-value (v) v)))
 
-(defun make-story (text &optional action-buttons image)
+(defun make-story (text &key action-buttons (image :no-image) id)
   "Create a story."
   (list text
         action-buttons
-        image))
+        image
+        id))
+
+(defun story-id (story)
+  "Return identifier of STORY."
+  (fourth story))
 
 (defun story-text (story)
   "Return text bit of a STORY."
@@ -43,23 +57,31 @@ RESTART-CASES:
   "Return image of STORY."
   (third story))
 
-(defun set-image-story (img-file-name story)
-  "Return updated story with the given image file name."
-  (list (story-text story)
-        (story-action-buttons story)
-        img-file-name))
-
 (defun add-text-to-story (text story)
-  "Return updated story with TEXT added."
-  (list (str:concat (story-text story)
-                    text)
-        (story-action-buttons story)))
+  "Return updated story with TEXT added.
+Effect on STORY."
+  (setf (nth 0 story) (str:concat (story-text story)
+                                  text))
+  story)
 
 (defun add-action-button-to-story (action-button story)
-  "Return updated story whit ACTION-BUTTON added."
-  (list (story-text story)
-        (append (story-action-buttons story)
-                (list action-button))))
+  "Return updated story whit ACTION-BUTTON added.
+Effect on STORY."
+  (setf (nth 1 story) (append (story-action-buttons story)
+                              (list action-button)))
+  story)
+
+(defun set-image-story (img-file-name story)
+  "Return updated story with the given image file name.
+ Effect on STORY."
+  (setf (nth 2 story) img-file-name)
+  story)
+
+(defun set-id-story (id story)
+  "Return updated story with ID.
+Effect on STORY."
+  (setf (nth 3 story) id)
+  story)
 
 (defun make-action-button (text destination-story &optional ref-p)
   "Create an action button.
@@ -84,13 +106,13 @@ An action is a bit of text that explains the transition to another story."
 
 (defun set-image-action (img-file-name action)
   "Return updated action with the given image file name."
-  (list (action-text action)
-        img-file-name))
+  (setf (nth 1 action) img-file-name)
+  action)
 
 (defun add-text-to-action (text action)
   "Return updated ACTION with TEXT added."
-  (list (str:concat (action-text action)
-                    text)))
+  (setf (nth 0 action) (str:concat (action-text action) text))
+  action)
 
 (defun id->title (id)
   "Returns a capitalized title."
@@ -106,7 +128,36 @@ An action is a bit of text that explains the transition to another story."
   (str:concat (str:downcase (str:replace-all " " "-" title))
               suffix))
 
-(defun next-story (&optional story actions-p)
+(defun make-headline (line)
+  "Returns a list of three elements that make a head line.
+A headline always contains three components:
+ - the type (e.g. ACTION or STORY),
+ - the Title and/or ID if no specific ID is given,
+ - the ID (keyword)."
+  (let ((headline (mapcar #'str:trim (str:split "," (subseq line 1)))))
+    (assert (<= (length headline) 3))
+    headline))
+
+(defun id-provided-p (headline)
+  "For any headline: return T when a specific ID is give."
+  (and (third headline)
+       (not (str:empty? (third headline)))))
+
+(defun type-headline (headline)
+  "Return the ID of the headline."
+  (str:downcase (first headline)))
+
+(defun title-headline (headline)
+  "Return the title of the headline."
+  (second headline))
+
+(defun id-headline (headline)
+  "Return the ID of the headline."
+  (if (id-provided-p headline)
+      (third headline)
+      (title->id (title-headline headline) (str:concat "-" (type-headline headline)))))
+
+(defun next-story (story &optional actions-p)
   "Reads *IN* and update *LINE-CURSOR* with NEXT-LINE line by line.
 If ACTIONS-P is not nil, it means that we are collecting action lines."
   (handler-bind ((end-of-file #'(lambda (c)
@@ -146,7 +197,7 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                             (or action-line-p actions-p))))
           story))))
 
-(defun next-action (&optional action)
+(defun next-action (action)
   "Reads *IN* and update *LINE-CURSOR* with NEXT-LINE line by line."
   (handler-bind ((end-of-file #'(lambda (c)
                                   (format t "~&WARNING: NEXT-ACTION - ~A~%" c)
@@ -160,12 +211,6 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                               (set-image-action (str:replace-all image-line "" line) action))
                              (;; ACTION TEXT
                               t (add-text-to-action line action))))))))
-
-(define-condition not-a-package-error (error)
-  ((text :initarg :text :reader text)))
-
-(define-condition missing-export-error (error)
-  ((text :initarg :text :reader text)))
 
 (defun symbol-of (str package)
   "Return a symbol named STR interned in PACKAGE."
@@ -192,21 +237,23 @@ It must as well export the following two symbols: #:|*stories*| and #:|*actions*
     (t
      (with-open-file (*in* dtb-path)
        (symbol-macrolet ((st (intern "*stories*" destination-package))
-                         (ac (intern "*actions*" destination-package)))
+                         (ac (intern "*actions*" destination-package))
+                         (headline (make-headline *line-cursor*)))
          (let* ((*line-cursor* (read-line *in*))
                 (list-of-definitions
                  `((defvar ,st (make-hash-table :test 'equal))
                    (defvar ,ac (make-hash-table :test 'equal))
                    ,@(loop
                         until (eq *line-cursor* :end-of-file)
-                        collect (cond ((str:starts-with-p story-line *line-cursor*)
-                                       (let* ((symbol-str (title->id (second (str:split story-line *line-cursor*))
-                                                                     "-story")))
-                                         `(hm:put ,st ,symbol-str ',(next-story))))
-                                      ((str:starts-with-p action-line *line-cursor*)
-                                       (let* ((symbol-str (title->id (second (str:split action-line *line-cursor*))
-                                                                     "-action")))
-                                         `(hm:put ,ac ,symbol-str ',(next-action)))))))))
+                        collect (cond (;; STORY
+                                       (string= "story" (type-headline headline))
+                                       (let* ((symbol-str (id-headline headline)))
+                                         `(hm:put ,st ,symbol-str ',(next-story
+                                                                     (make-story "" :id symbol-str)))))
+                                      (;; ACTION
+                                       (string= "action" (type-headline headline))
+                                       (let* ((symbol-str (id-headline headline)))
+                                         `(hm:put ,ac ,symbol-str ',(next-action (make-action ""))))))))))
            `(progn
               (in-package ,destination-package)
               ,@list-of-definitions)))))))
