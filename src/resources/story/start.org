@@ -34,15 +34,15 @@ veins of the mountain.
 You're ready to leave the cavern and explore its surroundings.
 
 ** ACTIONS
-"Walk out of the cavern", Out of the cavern
-* STORY, Out of the cavern 2
+"Walk out of the cavern", the-cavern
+* STORY, The cavern, out-of-the-cavern-2
 
 You're outside of the main entrance of the cavern, discovering.
 
 ** ACTIONS
-"Go to the river", The River 2
+"Go to the river", the-river-2
 Hear the earth, The earth spirit
-"Observe the trees", The tree spirit 2
+"Observe the trees", the-tree-spirit-2
 Talk to the wind spirit, The wind spirit
 
 * ACTION, Talk to the wind spirit
@@ -53,8 +53,8 @@ You ask the wind: "How can I help Mother earth?"
 
 And the wind spirit tells you: "Fffffollow the Ccccolibriii."
 ** ACTIONS
-"Back to the cavern", The cavern 3
-* STORY, The cavern 3
+"Back to the cavern", the-cavern-3
+* STORY, The cavern, the-cavern-3
 Back at the cavern entrance, you hear something behind your back. You
 turn around to see. There it is: the Colibri.
 
@@ -74,7 +74,7 @@ That is your mission my shaman friend!"
 More in the next episode...  :)
 ** ACTIONS
 "Start again...", Intro
-* STORY, Out of the cavern
+* STORY, The cavern, the-cavern
 
 You're outside of the main entrance of the cavern, discovering.
 
@@ -92,12 +92,12 @@ leaves of the Mastre. The tree of the ancient wisdom.
 ** ACTIONS
 Hug the tree, Hugging the tree
 Ask the tree for climbing, Climbing the tree
-* STORY, The tree spirit 2
+* STORY, The tree spirit, the-tree-spirit-2
 Walking to the most impressive tree, you recognize the beautiful
 leaves of the Mastre. The tree of the ancient wisdom.
 ** ACTIONS
-Hug the tree, Hugging the tree 2
-Ask the tree for climbing, Climbing the tree 2
+Hug the tree, hugging-the-tree-2
+Ask the tree for climbing, climbing-the-tree-2
 * ACTION, Ask the tree for climbing
 You tell the tree that you to want see the other human inhabitants of the earth.
 * ACTION, Hug the tree
@@ -108,7 +108,7 @@ the sons of the earth have developed their intelligence in amazing
 levels. However, they became blind by their own intellect and have
 disconnected themselves from their spirit and mother's one. Our Mother."
 ** ACTIONS
-"Back to the cavern", Out of the cavern
+"Back to the cavern", the-cavern
 * STORY, Climbing the tree
 The tree allows you to climb. You search for other humans, looking at the horizon.
 
@@ -117,15 +117,15 @@ away. For how long? I do not know. They massively cut down the trees,
 kidnap and kill the animals. They destroy the soil to cultivate
 violence, misery and suffering."
 ** ACTIONS
-"Back to the cavern", Out of the cavern
-* STORY, Hugging the tree 2
+"Back to the cavern", the-cavern
+* STORY, Hugging the tree, hugging-the-tree-2
 The tree tells you about the suffering of mother nature: "The mankind,
 the sons of the earth have developed their intelligence in amazing
 levels. However, they became blind by their own intellect and have
 disconnected themselves from their spirit and mother's one. Our Mother."
 ** ACTIONS
-"Back to the cavern", Out of the cavern 2
-* STORY, Climbing the tree 2
+"Back to the cavern", out-of-the-cavern-2
+* STORY, Climbing the tree, climbing-the-tree-2
 The tree allows you to climb. You search for other humans, looking at the horizon.
 
 The tree says: "Perhaps you cannot see them. Luckily, they are far
@@ -133,7 +133,7 @@ away. For how long? I do not know. They massively cut down the trees,
 kidnap and kill the animals. They destroy the soil to cultivate
 violence, misery and suffering."
 ** ACTIONS
-"Back to the cavern", Out of the cavern 2
+"Back to the cavern", out-of-the-cavern-2
 * STORY, The River
 
 You are now stepping on the cold water and feel totally safe.
@@ -149,8 +149,8 @@ spirit of what was to come and she was thought and memory."
 The river makes a pause, and continues: "I am also a part of you. I support your existence."
 
 ** ACTIONS
-Pray to The Water Spirit, Out of the cavern
-* STORY, The River 2
+Pray to The Water Spirit, the-cavern
+* STORY, The River, the-river-2
 
 You are now stepping on the cold water and feel totally safe.
 
@@ -165,7 +165,7 @@ spirit of what was to come and she was thought and memory."
 The river makes a pause, and continues: "I am also a part of you. I support your existence."
 
 ** ACTIONS
-Pray to The Water Spirit, Out of the cavern 2
+Pray to The Water Spirit, out-of-the-cavern-2
 * STORY, Walk back to the cavern
 
 Arriving back at the center of the cavern, you suddenly hear a heart beating faster and faster.
@@ -184,7 +184,7 @@ veins of the cavern, you are now able to distinguish each one of all
 the small threads in various colors.
 
 ** ACTIONS
-"Back to the cavern", Out of the cavern 2
+"Back to the cavern", out-of-the-cavern-2
 * ACTION, Pray to The Water Spirit
 You kneel down, placing your face in the river's cold water.
 

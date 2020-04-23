@@ -19,5 +19,5 @@ exec ros -Q -- $0 "$@"
   (api:start)
   (handler-case (loop until nil
                    do (sleep 60))
-    (SB-SYS:INTERACTIVE-INTERRUPT () (format t "Shutting down. Bye :)"))))
+    (SB-SYS:INTERACTIVE-INTERRUPT () (format t "~2%Shutting down. Bye :)~%"))))
 ;;; vim: set ft=lisp lisp:

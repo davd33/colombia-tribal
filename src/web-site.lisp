@@ -17,7 +17,7 @@
   (build-spinneret-html-response
     (let ((story (hm:get colombia-tribal-game:|*stories*| (str:downcase story-id))))
       (html:story->html story
-                        (interactive-text-book:id->title (str:downcase story-id))
+                        (interactive-text-book:story-title story)
                         (interactive-text-book:story-image story)))))
 
 (defroute action

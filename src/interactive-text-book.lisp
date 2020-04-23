@@ -34,12 +34,17 @@ RESTART-CASES:
      (skip () nil)
      (use-value (v) v)))
 
-(defun make-story (text &key action-buttons (image :no-image) id)
+(defun make-story (text &key action-buttons (image :no-image) id title)
   "Create a story."
   (list text
         action-buttons
         image
-        id))
+        id
+        title))
+
+(defun story-title (story)
+  "Return title of STORY."
+  (fifth story))
 
 (defun story-id (story)
   "Return identifier of STORY."
@@ -153,9 +158,10 @@ A headline always contains three components:
 
 (defun id-headline (headline)
   "Return the ID of the headline."
-  (if (id-provided-p headline)
-      (third headline)
-      (title->id (title-headline headline) (str:concat "-" (type-headline headline)))))
+  (symbol-macrolet ((suffix (str:concat "-" (type-headline headline))))
+    (if (id-provided-p headline)
+        (title->id (third headline) suffix)
+        (title->id (title-headline headline) suffix))))
 
 (defun next-story (story &optional actions-p)
   "Reads *IN* and update *LINE-CURSOR* with NEXT-LINE line by line.
@@ -210,7 +216,10 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
                               (str:starts-with-p image-line line)
                               (set-image-action (str:replace-all image-line "" line) action))
                              (;; ACTION TEXT
-                              t (add-text-to-action line action))))))))
+                              t (add-text-to-action (if (str:emptyp line)
+                                                        "<br/>"
+                                                        (str:concat " " line))
+                                                    action))))))))
 
 (defun symbol-of (str package)
   "Return a symbol named STR interned in PACKAGE."
@@ -249,7 +258,9 @@ It must as well export the following two symbols: #:|*stories*| and #:|*actions*
                                        (string= "story" (type-headline headline))
                                        (let* ((symbol-str (id-headline headline)))
                                          `(hm:put ,st ,symbol-str ',(next-story
-                                                                     (make-story "" :id symbol-str)))))
+                                                                     (make-story ""
+                                                                                 :id symbol-str
+                                                                                 :title (title-headline headline))))))
                                       (;; ACTION
                                        (string= "action" (type-headline headline))
                                        (let* ((symbol-str (id-headline headline)))

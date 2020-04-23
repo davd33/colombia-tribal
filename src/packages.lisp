@@ -59,6 +59,7 @@
   (:use #:cl #:alexandria)
   (:export #:defbook
            #:make-story
+           #:story-title
            #:story-text
            #:story-image
            #:story-action-buttons
