@@ -71,7 +71,56 @@ How to convince them? Hihhi
 That is your mission my shaman friend!"
 
 ** ACTIONS
-"[Ask] My mission?", the-cavern-colibri-mission
+"Ask about the mission?", the-cavern-colibri-mission
+"Ask where to go now?", the-cavern-horizons
+Quickly move forward and take the bird in your hands, the-cavern-angry-boy
+
+* ACTION, Quickly move forward and take the bird in your hands
+
+You're feeling anger. You have lived all those years in the dark. You
+have been chosen for guiding the tribe. Why should you endure the all
+this painful responsibilities?
+
+* STORY, The cavern, the-cavern-angry-boy
+
+HihiH Please! You're hurting me! hiih
+
+** ACTIONS
+"Kill the bird", the-cavern-lonely-path
+Let the animal live, the-cavern-3
+
+* ACTION, Let the animal live
+
+The image of Mamu comes at you. You remember that, in the cavern, he used
+to tell you that we are all connected.
+
+You know feel better. Your hands soften to let the Colibri escape.
+
+* STORY, The cavern, the-cavern-lonely-path
+
+You are angry at the world.
+
+* STORY, The cavern, the-cavern-horizons
+
+You have several options:
+ - Join your tribe to know more about the surroundings of the
+   Gorawindua mountain
+ - Walk to the new cities, where you will have to convince people to
+   respect the nature
+ - Traverse the immense forest of the Amazonias in order to meet with
+   other tribes and join forces
+
+Once you begin this adventure, there will be no way back
+here. Everything will change for you! I recommend you start by meeting
+your tribe and gather useful material.
+
+** ACTIONS
+"Say you have other questions before to start the adventure.", the-cavern-3
+"Start the adventure!", the-cavern-adventure-starts
+
+* STORY, The cavern, the-cavern-adventure-starts
+
+The adventure starts!
 
 * STORY, The cavern, the-cavern-colibri-mission
 
@@ -86,7 +135,7 @@ fast as possible to the forest to calm the fire. This day I knew what
 my mission was: Do my part of the work to help the living.
 
 ** ACTIONS
-"Continue", the-cavern-3
+"You understand...", the-cavern-3
 
 * STORY, The cavern, the-cavern
 
