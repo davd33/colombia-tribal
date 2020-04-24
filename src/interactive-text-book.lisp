@@ -244,7 +244,7 @@ It must as well export the following two symbols: #:|*stories*| and #:|*actions*
                        destination-package))
      (error 'missing-export-error :text "DESTINATION-PACKAGE must export |*stories*| and |*actions*|."))
     (t
-     (with-open-file (*in* (eval dtb-path))
+     (with-open-file (*in* dtb-path)
        (symbol-macrolet ((st (intern "*stories*" destination-package))
                          (ac (intern "*actions*" destination-package))
                          (headline (make-headline *line-cursor*)))
