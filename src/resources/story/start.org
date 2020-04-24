@@ -71,7 +71,7 @@ How to convince them? Hihhi
 That is your mission my shaman friend!"
 
 ** ACTIONS
-"[Ask] What do you mean, my mission?", the-cavern-colibri-mission
+"[Ask] My mission?", the-cavern-colibri-mission
 
 * STORY, The cavern, the-cavern-colibri-mission
 
