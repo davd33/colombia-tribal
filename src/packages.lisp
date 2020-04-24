@@ -55,6 +55,12 @@
            #:with-mapped-slot
            #:with-renamed-slot))
 
+(defpackage #:resources
+  (:use #:cl)
+  (:export #:*profile*
+           #:*system*
+           #:resource))
+
 (defpackage #:interactive-text-book
   (:use #:cl #:alexandria)
   (:export #:defbook
@@ -74,7 +80,7 @@
            #:id->title))
 
 (defpackage #:game
-  (:use #:cl #:interactive-text-book)
+  (:use #:cl #:interactive-text-book #:resources)
   (:export #:compile-colombia-tribal))
 
 (defpackage #:dao
@@ -95,7 +101,7 @@
    ))
 
 (defpackage #:api
-  (:use #:cl #:snooze #:jsons #:alexandria)
+  (:use #:cl #:snooze #:jsons #:alexandria #:resources)
   (:export #:start
            #:stop))
 

@@ -7,7 +7,8 @@ exec ros -Q -- $0 "$@"
   (ros:ensure-asdf)
   ;;#+quicklisp(ql:quickload '() :silent t)
   ;;#+quicklisp(ql:quickload :colombia-tribal)
-  (asdf:load-system :colombia-tribal :force t)
+  (let ((*profile* :exe))
+    (asdf:load-system :colombia-tribal :force t))
   )
 
 (defpackage :ros.script.colombia-tribal.3796291771

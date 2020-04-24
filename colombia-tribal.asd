@@ -27,6 +27,7 @@
                  (:file "memoize")
                  (:file "pipe")
                  (:file "mop")
+                 (:file "resources")
                  (:file "interactive-text-book")
                  (:file "game")
                  (:file "dao")
