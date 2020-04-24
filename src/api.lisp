@@ -8,11 +8,11 @@
 (defparameter *lispdoc-dispatch-table*
   (list
    (hunchentoot:create-folder-dispatcher-and-handler
-    "/images/" (fad:pathname-as-directory #P"./resources/images"))
+    "/images/" (fad:pathname-as-directory (resource "images")))
    (hunchentoot:create-folder-dispatcher-and-handler
-    "/css/" (fad:pathname-as-directory #P"./resources/css"))
+    "/css/" (fad:pathname-as-directory (resource "css")))
    (hunchentoot:create-folder-dispatcher-and-handler
-    "/webfonts/" (fad:pathname-as-directory #P"./resources/webfonts"))
+    "/webfonts/" (fad:pathname-as-directory (resource "webfonts")))
    (make-hunchentoot-app '((*home-resource* . web-site:home)))))
 
 (defmethod hunchentoot:acceptor-dispatch-request :around ((a snooze-acceptor) request)
