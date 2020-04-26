@@ -21,6 +21,7 @@ jobs:
 
     steps:
       - checkout
+      - run: ln -s /root/colombia-tribal/ /root/.roswell/local-projects/
       - run: ls -al
       - run: pwd
       - run: ls -al ..
