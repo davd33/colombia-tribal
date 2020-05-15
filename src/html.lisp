@@ -16,12 +16,12 @@
       (:head
        (:link :href "/css/main.css" :rel "stylesheet" :type "text/css")
        (:title ,title)
-       (:style "html {"
-               (css (:background (str:concat "url(" ,image-path ")")))
-               "background-size: cover;"
-               "background-repeat: no-repeat;"
-               "}")
-       )
+       (when ,image-path
+         (:style "html {"
+                 (css (:background (str:concat "url(" ,image-path ")")))
+                 "background-size: cover;"
+                 "background-repeat: no-repeat;"
+                 "}")))
       (:body
        (:div.container ,@body)))))
 
@@ -76,3 +76,27 @@ for a translation split into a list of several strings.
                         action-title))
               (:p (link :href (str:concat "/story/" story-destination)
                         action-title)))))))))
+
+(defun register-form (title action err-msg)
+  "Form for registering."
+  (with-page (:title title)
+    (:h1 title)
+    (:p err-msg)
+    (:form :method "POST"
+           :action action
+           (:input :type "text"
+                   :name "pname"
+                   :placeholder "Davd33")
+           (:br)
+           (:input :type "password"
+                   :name "password"
+                   :placeholder "Password")
+           (:input :type "password"
+                   :name "password_repeat"
+                   :placeholder "Repeat Password")
+           (:br)
+           (:input :type "text"
+                   :name "mail"
+                   :placeholder "Mail (not mandatory)")
+           (:br)
+           (:input :type "submit" :value "Create"))))

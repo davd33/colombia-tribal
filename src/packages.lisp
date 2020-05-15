@@ -83,22 +83,54 @@
   (:use #:cl #:interactive-text-book #:resources)
   (:export #:compile-colombia-tribal))
 
-(defpackage #:dao
+(defpackage #:dao.utils
   (:use #:cl)
+  (:export #:connect
+           #:*connection*
+           #:make-mapper
+           #:json->dao-mapper
+           #:json->dao-mapper-kind
+           #:json->dao-mapper-hm
+           #:defmapper
+           #:json->dao
+           #:create-table
+           #:drop-table
+           #:create-tables
+           #:drop-tables
+           #:reset-db-tables))
+
+(defpackage #:dao
+  (:use #:cl #:dao.utils)
   (:export
    ;; ENTITIES
+   #:user
+   #:login
    ;; ENTITY FIELDS
+   #:pname
+   #:password
+   #:mail
+   #:token
+   #:expires
    ;; RETRIEVE
+   #:retrieve-user
+   #:retrieve-login-by-user-id
    ;; INSERT
+   #:insert-user
+   #:insert-login
    ;; CONNECT AND CREATE TABLES
    #:connect
    #:*connection*))
 
 (defpackage #:dto
   (:use #:cl)
-  (:export ;; DTOs
+  (:export #:user
+           #:login
            ;; ACCESSORS
-   ))
+           #:pname
+           #:password
+           #:mail
+           #:token
+           #:expires))
 
 (defpackage #:api
   (:use #:cl #:snooze #:jsons #:alexandria #:resources)
@@ -108,7 +140,8 @@
 (defpackage #:html
   (:use #:cl #:spinneret #:alexandria)
   (:export #:story->html
-           #:action->html))
+           #:action->html
+           #:register-form))
 
 (defpackage #:web-site
   (:use #:cl #:snooze #:jsons #:alexandria)
@@ -116,4 +149,4 @@
 
 (defpackage #:services
   (:use #:cl #:jsons #:alexandria #:spinneret)
-  (:export #:get-story))
+  (:export #:register-user))

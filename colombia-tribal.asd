@@ -6,6 +6,7 @@
   :depends-on (#:spinneret
                #:hunchentoot
                #:snooze
+               #:quri
                #:dexador
                #:cl-json
                #:clack
@@ -30,6 +31,7 @@
                  (:file "resources")
                  (:file "interactive-text-book")
                  (:file "game")
+                 (:file "dao.utils")
                  (:file "dao")
                  (:file "dto")
                  (:file "api")
