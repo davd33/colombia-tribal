@@ -5,6 +5,52 @@
      (let ((spinneret:*html* out))
        ,@body)))
 
+(define-condition redirect (http-condition)
+  ((location :initarg :location :accessor location)))
+
+;;; REGISTER WEB FORM
+(defresource register (verb ct &key err) (:genpath register-path))
+
+(defroute register
+  (:get "text/html" &key err)
+  (build-spinneret-html-response
+    (html:register-form "Create your account"
+                        "/register-post"
+                        err)))
+
+;;; REGISTER FORM POST
+(defroute register-post
+  (:post "application/x-www-form-urlencoded")
+  (let ((payload (quri:uri-query-params (quri:make-uri :query  (payload-as-string)))))
+    (labels ((redirect (msg)
+               (signal 'redirect :status-code 303 :location (register-path :err msg)))
+             (param (name)
+               (cdr (assoc name payload :test #'string=))))
+      (let ((user-dto (handler-case
+                          (progn
+                            (assert (string= (param "password_repeat")
+                                             (param "password")))
+                            (make-instance 'dto:user
+                                           :pname (param "pname")
+                                           :password (param "password")
+                                           :mail (param "mail")))
+                        (simple-error ()
+                          (print "diff passwords")
+                          (redirect "Passwords are not the same.")))))
+        (print "=PAYLOAD=")
+        (print payload)
+        (services:register-user user-dto)
+        (redirect "Registered!")))))
+
+(defmethod explain-condition :around ((c redirect)
+                                      (resource (eql #'register-post))
+                                      (ct snooze-types:application/x-www-form-urlencoded))
+  (setf (hunchentoot:header-out :location) (location c))
+  (print "===========")
+  (format t "~A" (location c))
+  (print "===========")
+  (format nil "See here: ~a" (location c)))
+
 (defroute home
   (:get "text/html")
   (build-spinneret-html-response

@@ -20,6 +20,12 @@ Example:
                :initial-value (list))
      ,@body))
 
-(defun get-story (id)
-  "Return the text for the next STORY."
-  "Hello world!")
+(defpost register-user (user-dto) ()
+  "Create a DB entry for USER."
+  (handler-case (progn
+                  (assert (eq 'dto:user user-dto))
+                  (dao:insert-user user-dto))
+    (simple-error () "ERROR: USER-DTO not of type DTO:USER")
+    (dbi.error:<dbi-database-error> (e)
+      (format t "~&ERROR while creating user: ~A" e)
+      (format nil "ERROR DB: ~A" e))))

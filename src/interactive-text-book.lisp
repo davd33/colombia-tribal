@@ -167,7 +167,7 @@ A headline always contains three components:
   "Reads *IN* and update *LINE-CURSOR* with NEXT-LINE line by line.
 If ACTIONS-P is not nil, it means that we are collecting action lines."
   (handler-bind ((end-of-file #'(lambda (c)
-                                  (format t "~&WARNING: NEXT-STORY - ~A~%" c)
+                                  (format t "~&INFO: NEXT-STORY - ~A~%" c)
                                   (invoke-restart 'use-eof))))
     (let ((line (next-line *line-cursor*)))
       (if (not (eq :end-of-file line))
@@ -206,7 +206,7 @@ If ACTIONS-P is not nil, it means that we are collecting action lines."
 (defun next-action (action)
   "Reads *IN* and update *LINE-CURSOR* with NEXT-LINE line by line."
   (handler-bind ((end-of-file #'(lambda (c)
-                                  (format t "~&WARNING: NEXT-ACTION - ~A~%" c)
+                                  (format t "~&INFO: NEXT-ACTION - ~A~%" c)
                                   (invoke-restart 'use-eof))))
     (let ((line (next-line *line-cursor*)))
       (if (or (eq :end-of-file line)
