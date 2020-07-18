@@ -8,7 +8,29 @@
 (define-condition redirect (http-condition)
   ((location :initarg :location :accessor location)))
 
-;;; REGISTER WEB FORM
+(defun redirect (location-path)
+  (signal 'redirect :status-code 303 :location location-path))
+
+;;; LOGIN WEB FORM
+(defresource login (verb ct &key err) (:genpath login-path))
+
+(defroute login
+  (:get "text/html" &key err)
+  (build-spinneret-html-response
+    (html:login-form "/login-post"
+                     err)))
+
+(defroute login-post
+  (:post "application/x-www-form-urlencoded")
+  (let* ((payload (quri:uri-query-params (quri:make-uri :query (payload-as-string))))
+         (pname (cdr (assoc "pname" payload :test #'string=)))
+         (passwd (cdr (assoc "password" payload :test #'string=))))
+    (if (null (dao:verify-login pname passwd))
+        (redirect (str:concat "/login?err=" (hunchentoot:url-encode "Wrong id or password!")))
+        (build-spinneret-html-response
+          (html:logged-in-index pname)))))
+
+;;; REGISTER
 (defresource register (verb ct &key err) (:genpath register-path))
 
 (defroute register
@@ -18,13 +40,10 @@
                         "/register-post"
                         err)))
 
-;;; REGISTER FORM POST
 (defroute register-post
   (:post "application/x-www-form-urlencoded")
   (let ((payload (quri:uri-query-params (quri:make-uri :query  (payload-as-string)))))
-    (labels ((redirect (msg)
-               (signal 'redirect :status-code 303 :location (register-path :err msg)))
-             (param (name)
+    (labels ((param (name)
                (cdr (assoc name payload :test #'string=))))
       (let ((user-dto (handler-case
                           (progn
@@ -35,23 +54,23 @@
                                            :password (param "password")
                                            :mail (param "mail")))
                         (simple-error ()
-                          (print "diff passwords")
-                          (redirect "Passwords are not the same.")))))
-        (print "=PAYLOAD=")
-        (print payload)
+                          (redirect (str:concat "/register?err=" (hunchentoot:url-encode "Passwords are not the same.")))))))
         (services:register-user user-dto)
-        (redirect "Registered!")))))
+        (redirect (login-path :err "Registered!"))))))
 
-(defmethod explain-condition :around ((c redirect)
-                                      (resource (eql #'register-post))
-                                      (ct snooze-types:application/x-www-form-urlencoded))
+(defmethod explain-condition ((c redirect) rs ct)
+  (declare (ignore rs ct))
   (setf (hunchentoot:header-out :location) (location c))
-  (print "===========")
-  (format t "~A" (location c))
-  (print "===========")
   (format nil "See here: ~a" (location c)))
 
+;;; HOME OF WEBSITE
 (defroute home
+  (:get "text/html")
+  (build-spinneret-html-response
+    (html:home "Interactive books")))
+
+;;; COLOMBIA TRIBAL GAME
+(defroute colombia-tribal
   (:get "text/html")
   (build-spinneret-html-response
     (let ((intro-story

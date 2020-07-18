@@ -21,9 +21,12 @@ Example:
      ,@body))
 
 (defpost register-user (user-dto) ()
-  "Create a DB entry for USER."
+    "Create a DB entry for USER."
+  ;; TODO
+  (print "Hello: REGISTER-USER")
   (handler-case (progn
                   (assert (eq 'dto:user user-dto))
+                  (print user-dto)
                   (dao:insert-user user-dto))
     (simple-error () "ERROR: USER-DTO not of type DTO:USER")
     (dbi.error:<dbi-database-error> (e)

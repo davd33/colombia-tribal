@@ -39,3 +39,9 @@
    (mito:select-dao 'login
      (sxql:where (:= :user-id user-id))
      (sxql:limit 1))))
+
+;;; SIGN IN
+(defun verify-login (pname password)
+  "Verify that the pseudo PNAME of the user is linked with the given PASSWORD.
+Returns the found DAO or NIL."
+  (mito:find-dao 'dao:user :pname pname :password password))

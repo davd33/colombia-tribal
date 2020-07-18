@@ -77,9 +77,43 @@ for a translation split into a list of several strings.
               (:p (link :href (str:concat "/story/" story-destination)
                         action-title)))))))))
 
+(defun home (title)
+  "Home of the web site."
+  (with-page (:title title :image-path "/images/the-cavern.jpg")
+    (:h1 title)
+    (:p "Welcome to the website where you can write your own interactive books and play the ones writen by the community.")
+    (:p "Wanna have a look how an interactive book looks like: "
+        (link :href "/colombia-tribal" "this way!"))
+    (:p "Wanna register and start writing your own interactive books: "
+        (link :href "/register" "down here!"))
+    (:br)
+    (link :href "/login" "Sign in!")))
+
+(defun logged-in-index (pseudo)
+  "You're logged in!"
+  (with-page (:title (str:concat pseudo "You're now logged-in!"))
+    (:h1 "Welcome to the site, you can now create your own stories!")))
+
+(defun login-form (action err-msg)
+  "Form to log in"
+  (with-page (:title "Log in" :image-path "/images/the-cavern.jpg")
+    (:h1 "Please fill in your credentials")
+    (:p err-msg)
+    (:form :method "POST"
+           :action action
+           (:input :type "text"
+                   :name "pname"
+                   :placeholder "Username")
+           (:br)
+           (:input :type "password"
+                   :name "password"
+                   :placeholder "Password")
+           (:br)
+           (:input :type "submit" :value "Sign in"))))
+
 (defun register-form (title action err-msg)
   "Form for registering."
-  (with-page (:title title)
+  (with-page (:title title :image-path "/images/the-cavern.jpg")
     (:h1 title)
     (:p err-msg)
     (:form :method "POST"

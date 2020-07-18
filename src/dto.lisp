@@ -1,5 +1,8 @@
 (in-package #:dto)
 
+(defun mapdto ()
+  "Like a map function for dto instances.")
+
 (defclass user ()
   ((pname :initarg :pname
           :accessor pname

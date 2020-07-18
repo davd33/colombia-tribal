@@ -117,6 +117,8 @@
    ;; INSERT
    #:insert-user
    #:insert-login
+   ;; AUTH FEATURES
+   #:verify-login
    ;; CONNECT AND CREATE TABLES
    #:connect
    #:*connection*))
@@ -141,7 +143,10 @@
   (:use #:cl #:spinneret #:alexandria)
   (:export #:story->html
            #:action->html
-           #:register-form))
+           #:login-form
+           #:logged-in-index
+           #:register-form
+           #:home))
 
 (defpackage #:web-site
   (:use #:cl #:snooze #:jsons #:alexandria)
