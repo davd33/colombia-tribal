@@ -49,7 +49,8 @@ cd ./colombia-tribal-1.0.0/
 
 ** Web URL
 
-You can as well find the game at the following URL: http://172.105.86.13:5000/
+The game is no longer available online, for now... 
+You'll have to use the zip released for now.
 
 ** Game engine
 
